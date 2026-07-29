@@ -1,0 +1,92 @@
+.news-slider {
+  position: relative;
+  overflow: hidden;
+
+  &__glass {
+    position: absolute;
+    top: 0;
+    right: clamp(-40px, 2vw, 40px);
+    width: clamp(140px, 12vw, 220px);
+    opacity: 0.85;
+    pointer-events: none;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__swiper {
+    margin-top: clamp(32px, 5vw, 48px);
+    padding-bottom: 8px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-text-faint;
+      opacity: 1;
+      cursor: pointer;
+      transition: background 0.25s $ease-out;
+      margin: 0 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: $color-white;
+    }
+  }
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__image {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: $color-bg-panel;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s $ease-out;
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  &__date {
+    font-weight: 700;
+    color: $color-text-muted;
+    font-size: 0.9rem;
+  }
+
+  .section-rule {
+    margin-block: 14px 16px;
+  }
+
+  &__excerpt {
+    color: $color-text-muted;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}

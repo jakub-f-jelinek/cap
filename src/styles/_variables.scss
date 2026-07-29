@@ -1,0 +1,33 @@
+// Colors
+$color-bg: #020202;
+$color-bg-elevated: #0b0b0c;
+$color-bg-panel: #111113;
+$color-white: #ffffff;
+$color-text: #f4f4f5;
+$color-text-muted: rgba(255, 255, 255, 0.68);
+$color-text-faint: rgba(255, 255, 255, 0.42);
+$color-border: rgba(255, 255, 255, 0.22);
+$color-border-soft: rgba(255, 255, 255, 0.12);
+
+$color-accent-box: #f0eefb; // light lavender label box
+$color-ink: #111013; // text on light boxes
+$color-purple: #7c5cfa;
+
+// Typography
+$font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Layout
+$container-max: 1360px;
+$container-padding: clamp(20px, 5vw, 80px);
+$header-height: 96px;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1360px;
+
+// Motion
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+$transition-base: 0.4s $ease-out;

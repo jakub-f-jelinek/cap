@@ -1,0 +1,72 @@
+.footer {
+  background: linear-gradient(180deg, $color-bg 0%, #0d0d10 100%);
+  padding-block: clamp(56px, 8vw, 96px) clamp(32px, 6vw, 56px);
+  border-top: 1px solid $color-border-soft;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: clamp(32px, 6vw, 80px);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__badge {
+    background: $color-accent-box;
+    color: $color-ink;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.25;
+    padding: 18px 22px;
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(24px, 4vw, 48px);
+
+    @include tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column-title {
+    @include eyebrow;
+    color: $color-white;
+    margin-bottom: 14px;
+  }
+
+  &__column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__column a {
+    color: $color-text-muted;
+    font-size: 0.92rem;
+    transition: color 0.2s $ease-out;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+    }
+  }
+
+  &__logo {
+    justify-self: end;
+
+    @include tablet {
+      justify-self: start;
+    }
+  }
+}

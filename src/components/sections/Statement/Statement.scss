@@ -1,0 +1,54 @@
+.statement {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+
+  &__glass {
+    position: absolute;
+    top: 50%;
+    width: clamp(220px, 22vw, 380px);
+    height: auto;
+    opacity: 0.85;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    &--left {
+      left: clamp(-80px, -4vw, -20px);
+    }
+
+    &--right {
+      right: clamp(-80px, -4vw, -20px);
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__box {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+    border: 1px solid $color-border;
+    padding: clamp(36px, 6vw, 64px) clamp(24px, 6vw, 72px);
+
+    h2 {
+      @include heading-lg;
+      text-transform: uppercase;
+      color: $color-white;
+      margin-bottom: 22px;
+    }
+
+    p {
+      color: $color-text-muted;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+  }
+}

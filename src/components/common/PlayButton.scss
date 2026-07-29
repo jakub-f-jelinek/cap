@@ -1,0 +1,30 @@
+.play-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid $color-white;
+  background: rgba(2, 2, 2, 0.35);
+  color: $color-white;
+  transition: transform 0.35s $ease-out, background 0.3s $ease-out;
+
+  svg {
+    width: 42%;
+    height: 42%;
+  }
+
+  &--sm {
+    width: 48px;
+    height: 48px;
+  }
+
+  &--md {
+    width: 88px;
+    height: 88px;
+  }
+
+  &--lg {
+    width: 112px;
+    height: 112px;
+  }
+}

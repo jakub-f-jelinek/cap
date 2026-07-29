@@ -1,0 +1,80 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  pointer-events: none;
+
+  &__burger {
+    @include reset-button;
+    @include focus-ring;
+    pointer-events: auto;
+    position: absolute;
+    top: clamp(20px, 4vw, 40px);
+    right: clamp(20px, 5vw, 60px);
+    z-index: 110;
+    width: 44px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: $color-white;
+      transition: transform 0.35s $ease-out, opacity 0.25s $ease-out, width 0.3s $ease-out;
+    }
+
+    span:nth-child(2) {
+      width: 70%;
+      align-self: flex-end;
+    }
+
+    &--open {
+      span {
+        width: 100%;
+      }
+      span:nth-child(1) {
+        transform: translateY(15px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-15px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__overlay {
+    pointer-events: auto;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 2, 2, 0.97);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    padding: clamp(100px, 12vw, 160px) clamp(24px, 8vw, 120px) 60px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vw, 22px);
+
+    a {
+      @include heading-lg;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: $color-white;
+      transition: opacity 0.25s $ease-out, letter-spacing 0.25s $ease-out;
+      display: inline-block;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.6;
+        letter-spacing: 0.01em;
+      }
+    }
+  }
+}

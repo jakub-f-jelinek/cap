@@ -1,0 +1,88 @@
+.quiz-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(2, 2, 2, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 5vw, 60px);
+
+  &__panel {
+    position: relative;
+    width: min(100%, 560px);
+    background: $color-bg-panel;
+    border: 1px solid $color-border-soft;
+    padding: clamp(32px, 6vw, 56px);
+  }
+
+  &__close {
+    @include reset-button;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: $color-white;
+  }
+
+  &__step {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 28px;
+    padding-right: 24px;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__option {
+    @include reset-button;
+    @include focus-ring;
+    text-align: left;
+    border: 1px solid $color-border;
+    padding: 16px 20px;
+    transition: background 0.25s $ease-out, border-color 0.25s $ease-out;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: $color-white;
+    }
+  }
+
+  &__result {
+    text-align: center;
+    padding-block: 16px;
+
+    h3 {
+      @include heading-lg;
+      margin-block: 14px 12px;
+    }
+
+    p {
+      color: $color-text-muted;
+      line-height: 1.6;
+    }
+  }
+
+  &__restart {
+    @include reset-button;
+    @include focus-ring;
+    margin-top: 28px;
+    border: 1px solid $color-white;
+    padding: 12px 28px;
+    font-weight: 700;
+    transition: background 0.25s $ease-out, color 0.25s $ease-out;
+
+    &:hover,
+    &:focus-visible {
+      background: $color-white;
+      color: $color-ink;
+    }
+  }
+}
