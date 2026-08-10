@@ -1,39 +1,92 @@
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { quizQuestions, quizResults } from '@/data/quiz.js'
-import './QuizModal.scss'
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
+import "./QuizModal.scss";
 
-const getResult = (score) =>
-  quizResults.find((result) => score >= result.minScore && score <= result.maxScore) ?? quizResults[0]
+const POPUP_FEATURES = "noopener,noreferrer,width=640,height=700";
 
-export default function QuizModal({ isOpen, onClose }) {
-  const [step, setStep] = useState(0)
-  const [score, setScore] = useState(0)
+const SHARE_LABEL = {
+  facebook: "Sdílet na Facebooku",
+  instagram: "Sdílet na Instagramu",
+  whatsapp: "Sdílet na WhatsAppu",
+  x: "Sdílet na X",
+};
+
+export default function QuizModal({ isOpen, onClose, onRestart, result }) {
+  const pageUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareText = result
+    ? `Můj výsledek v kvízu: ${result.label}. ${result.description}`
+    : "";
+
+  const openShare = async (platform) => {
+    if (!result) return;
+
+    const encodedUrl = encodeURIComponent(pageUrl);
+    const encodedText = encodeURIComponent(shareText);
+
+    if (platform === "facebook") {
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
+        "_blank",
+        POPUP_FEATURES,
+      );
+      return;
+    }
+
+    if (platform === "whatsapp") {
+      window.open(
+        `https://wa.me/?text=${encodedText}%20${encodedUrl}`,
+        "_blank",
+        POPUP_FEATURES,
+      );
+      return;
+    }
+
+    if (platform === "x") {
+      window.open(
+        `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
+        "_blank",
+        POPUP_FEATURES,
+      );
+      return;
+    }
+
+    if (platform === "instagram") {
+      const sharePayload = `${shareText} ${pageUrl}`.trim();
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: result.label,
+            text: shareText,
+            url: pageUrl,
+          });
+        } else if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(sharePayload);
+        }
+      } catch {
+        // Keep fallback behavior silent when user cancels the native share dialog.
+      }
+      window.open("https://www.instagram.com/", "_blank", POPUP_FEATURES);
+    }
+  };
 
   useEffect(() => {
-    if (!isOpen) return undefined
-    setStep(0)
-    setScore(0)
-    document.body.style.overflow = 'hidden'
+    if (!isOpen) return undefined;
+
+    document.body.style.overflow = "hidden";
+
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', onKeyDown)
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [isOpen, onClose])
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, onClose]);
 
-  if (!isOpen) return null
-
-  const isFinished = step >= quizQuestions.length
-  const question = quizQuestions[step]
-
-  const handleAnswer = (optionScore) => {
-    setScore((prev) => prev + optionScore)
-    setStep((prev) => prev + 1)
-  }
+  if (!isOpen || !result) return null;
 
   return (
     <AnimatePresence>
@@ -56,62 +109,57 @@ export default function QuizModal({ isOpen, onClose }) {
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           onClick={(event) => event.stopPropagation()}
         >
-          <button type="button" className="quiz-modal__close" onClick={onClose} aria-label="Zavřít test">
+          <button
+            type="button"
+            className="quiz-modal__close"
+            onClick={onClose}
+            aria-label="Zavřít test"
+          >
             &times;
           </button>
 
-          <AnimatePresence mode="wait">
-            {!isFinished ? (
-              <motion.div
-                key={step}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -16 }}
-                transition={{ duration: 0.25 }}
-              >
-                <p className="quiz-modal__step">
-                  {step + 1}. {question.question}
-                </p>
-                <div className="quiz-modal__options">
-                  {question.options.map((option) => (
-                    <button
-                      type="button"
-                      key={option.label}
-                      className="quiz-modal__option"
-                      onClick={() => handleAnswer(option.score)}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="result"
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="quiz-modal__result"
-              >
-                <p className="section-eyebrow">Váš výsledek</p>
-                <h3>{getResult(score).label}</h3>
-                <p>{getResult(score).description}</p>
+          <motion.div
+            key={result.label}
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="quiz-modal__result"
+          >
+            <p className="section-eyebrow">Váš výsledek</p>
+            <h3>{result.label}</h3>
+            <img
+              src={result.image}
+              alt={result.label}
+              className="quiz-modal__image"
+            />
+            <p className="quiz-modal__description">{result.description}</p>
+
+            <div className="quiz-modal__share">
+              {Object.entries(SHARE_LABEL).map(([platform, label]) => (
                 <button
                   type="button"
-                  className="quiz-modal__restart"
+                  key={platform}
+                  className="quiz-modal__share-btn"
                   onClick={() => {
-                    setStep(0)
-                    setScore(0)
+                    void openShare(platform);
                   }}
                 >
-                  Zkusit znovu
+                  {label}
                 </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="quiz-modal__restart"
+              onClick={onRestart}
+            >
+              Zkusit znovu
+            </button>
+          </motion.div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
