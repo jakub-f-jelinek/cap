@@ -1,6 +1,5 @@
 .driver-stories {
   position: relative;
-  overflow: hidden;
 
   &__glass {
     position: absolute;
@@ -9,9 +8,24 @@
     width: clamp(160px, 16vw, 260px);
     opacity: 0.9;
     pointer-events: none;
+    z-index: 1000;
 
     @include tablet {
-      display: none;
+      // display: none;
+    }
+  }
+
+  &__glass_2 {
+    position: absolute;
+    top: -20px;
+    right: clamp(-20px, 2vw, 40px);
+    width: clamp(160px, 16vw, 260px);
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 1000;
+
+    @include tablet {
+      // display: none;
     }
   }
 
@@ -71,7 +85,11 @@
   &__front-scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 45%, rgba(2, 2, 2, 0.95) 100%);
+    background: linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(2, 2, 2, 0.95) 100%
+    );
   }
 
   &__front-footer {
@@ -93,10 +111,15 @@
     }
   }
 
-  &__teaser {
+  &__excerpt {
     color: $color-text-muted;
     font-size: 0.85rem;
     line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   &__back {

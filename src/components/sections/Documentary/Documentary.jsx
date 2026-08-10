@@ -24,11 +24,11 @@ export default function Documentary() {
         </button>
 
         <div className="documentary__copy">
-          <p className="section-eyebrow">
+          <h2 className="section-eyebrow">
             Dokumentární film
             <br />
             Jediná vteřina
-          </p>
+          </h2>
           <span className="section-rule" />
           <p className="documentary__lead">
             Stačí jediná vteřina a normální řízení může zabíjet

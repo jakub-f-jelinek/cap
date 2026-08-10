@@ -6,7 +6,7 @@
 
   &__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     align-items: center;
     gap: clamp(32px, 6vw, 80px);
 
@@ -52,9 +52,8 @@
   }
 
   &__text {
-    color: $color-text-muted;
-    font-size: 0.98rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.4;
     max-width: 480px;
   }
 }

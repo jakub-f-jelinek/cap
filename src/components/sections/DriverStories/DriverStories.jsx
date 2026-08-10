@@ -1,12 +1,38 @@
-import DriverCard from './DriverCard.jsx'
-import { drivers } from '@/data/drivers.js'
-import glassAccent from '@/assets/glass/glass-16.png'
-import './DriverStories.scss'
+import glassAccent from "@/assets/glass/glass-15.png";
+import glassAccent24 from "@/assets/glass/glass-26.png";
+import ScrollGlass from "@/components/common/ScrollGlass.jsx";
+import { drivers } from "@/data/drivers.js";
+import DriverCard from "./DriverCard.jsx";
+import "./DriverStories.scss";
+
+const GLASS_MOTION = {
+  x: [-50, -18],
+  y: [-24, 42],
+  scale: [1.5, 2.5],
+  rotate: [-8, 40],
+};
+
+const GLASS_MOTION_2 = {
+  x: [-220, -300],
+  y: [60, 10],
+  scale: [0.6, 1.2],
+  rotate: [0, 70],
+};
 
 export default function DriverStories() {
   return (
     <section id="pribehy" className="driver-stories section">
-      <img className="driver-stories__glass" src={glassAccent} alt="" aria-hidden="true" loading="lazy" />
+      <ScrollGlass
+        className="driver-stories__glass"
+        src={glassAccent}
+        motion={GLASS_MOTION}
+      />
+
+      <ScrollGlass
+        className="driver-stories__glass_2"
+        src={glassAccent24}
+        motion={GLASS_MOTION_2}
+      />
 
       <div className="container">
         <p className="section-eyebrow">
@@ -23,5 +49,5 @@ export default function DriverStories() {
         </div>
       </div>
     </section>
-  )
+  );
 }

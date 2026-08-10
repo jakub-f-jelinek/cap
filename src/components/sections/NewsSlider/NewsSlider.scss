@@ -2,19 +2,6 @@
   position: relative;
   overflow: hidden;
 
-  &__glass {
-    position: absolute;
-    top: 0;
-    right: clamp(-40px, 2vw, 40px);
-    width: clamp(140px, 12vw, 220px);
-    opacity: 0.85;
-    pointer-events: none;
-
-    @include tablet {
-      display: none;
-    }
-  }
-
   &__swiper {
     margin-top: clamp(32px, 5vw, 48px);
     padding-bottom: 8px;

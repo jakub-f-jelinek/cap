@@ -21,7 +21,9 @@ export default function CrashSlider() {
             centeredSlides={true}
             watchSlidesProgress={true}
             slideToClickedSlide={true}
-            slidesPerView={2.18}
+            loop={true}
+            speed={600}
+            slidesPerView={1.35}
             coverflowEffect={{
               rotate: 5,
               stretch: 24,
@@ -34,17 +36,14 @@ export default function CrashSlider() {
               640: {
                 slidesPerView: 1.55,
                 stretch: 54,
-                scale: 1,
               },
               960: {
                 slidesPerView: 2.2,
                 stretch: 54,
-                scale: 1,
               },
               1200: {
                 slidesPerView: 2.45,
                 stretch: 54,
-                scale: 1,
               },
             }}
             modules={[EffectCoverflow, Pagination]}

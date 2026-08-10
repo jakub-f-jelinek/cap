@@ -1,12 +1,7 @@
-import logo from '@/assets/images/cap-logo.svg'
-import './Footer.scss'
+import logo from "@/assets/images/cap-logo.svg";
+import "./Footer.scss";
 
-const columns = [
-  { title: 'Lorem ipsum dolor', links: ['Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor'] },
-  { title: 'Lorem ipsum dolor', links: ['Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor'] },
-  { title: 'Lorem ipsum dolor', links: ['Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor'] },
-  { title: 'Lorem ipsum dolor', links: ['Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor'] },
-]
+const columns = [];
 
 export default function Footer() {
   return (
@@ -33,8 +28,15 @@ export default function Footer() {
           ))}
         </div>
 
-        <img className="footer__logo" src={logo} alt="čap" width={105} height={56} loading="lazy" />
+        <img
+          className="footer__logo"
+          src={logo}
+          alt="čap"
+          width={105}
+          height={56}
+          loading="lazy"
+        />
       </div>
     </footer>
-  )
+  );
 }
