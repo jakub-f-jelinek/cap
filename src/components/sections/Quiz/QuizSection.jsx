@@ -175,18 +175,18 @@ export default function QuizSection() {
               disabled={selectedAnswer === null}
             />
           </div>
-
-          {isLastSlide && (
-            <button
-              type="button"
-              className="quiz-section__nav-btn quiz-section__nav-btn--next"
-              onClick={handleNext}
-              disabled={selectedAnswer === null}
-            >
-              Vyhodnotit
-            </button>
-          )}
         </div>
+
+        {isLastSlide && (
+          <button
+            type="button"
+            className="quiz-section__nav-btn quiz-section__btn--result"
+            onClick={handleNext}
+            disabled={selectedAnswer === null}
+          >
+            Vyhodnotit
+          </button>
+        )}
       </div>
 
       <QuizModal

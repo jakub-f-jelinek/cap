@@ -74,6 +74,35 @@
     }
   }
 
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+    }
+  }
+
+  input[type="radio"]:checked {
+    &::after {
+      background-color: #fff;
+    }
+  }
+
   &__option {
     display: flex;
     flex-direction: column;
@@ -91,7 +120,7 @@
       transform 1s $ease-out;
 
     input {
-      margin-top: 2px;
+      margin: 0;
       accent-color: $color-white;
       flex-shrink: 0;
     }
@@ -136,15 +165,6 @@
       cursor: not-allowed;
     }
   }
-
-  &__nav-btn--next {
-    color: #fff;
-    border-color: transparent;
-
-    &:disabled {
-      color: $color-text-faint;
-    }
-  }
 }
 
 .arrow {
@@ -160,4 +180,20 @@
 
 .arrow--right {
   transform: rotate(-45deg);
+}
+
+.quiz-section__btn--result {
+  color: #000;
+  border-color: transparent;
+  min-width: 120px;
+  height: 48px;
+  transition: all 1s $ease-out;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    color: $color-text-faint;
+  }
 }

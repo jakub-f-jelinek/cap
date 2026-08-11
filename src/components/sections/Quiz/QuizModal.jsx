@@ -126,37 +126,38 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
             transition={{ duration: 0.3 }}
             className="quiz-modal__result"
           >
-            <p className="section-eyebrow">Váš výsledek</p>
-            <h3>{result.label}</h3>
-            <img
-              src={result.image}
-              alt={result.label}
-              className="quiz-modal__image"
+            <div
+              className="quiz-modal__result--img"
+              style={{ backgroundImage: `url(${result.image})` }}
             />
-            <p className="quiz-modal__description">{result.description}</p>
+            <div className="quiz-modal__result--content">
+              <h3>{result.label}</h3>
 
-            <div className="quiz-modal__share">
-              {Object.entries(SHARE_LABEL).map(([platform, label]) => (
-                <button
-                  type="button"
-                  key={platform}
-                  className="quiz-modal__share-btn"
-                  onClick={() => {
-                    void openShare(platform);
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
+              <p className="quiz-modal__description">{result.description}</p>
+
+              <div className="quiz-modal__share">
+                {Object.entries(SHARE_LABEL).map(([platform, label]) => (
+                  <button
+                    type="button"
+                    key={platform}
+                    className="quiz-modal__share-btn"
+                    onClick={() => {
+                      void openShare(platform);
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <button
+            {/* <button
               type="button"
               className="quiz-modal__restart"
               onClick={onRestart}
             >
               Zkusit znovu
-            </button>
+            </button> */}
           </motion.div>
         </motion.div>
       </motion.div>
