@@ -1,5 +1,4 @@
 import phoneMockup from "@/assets/images/documentary-phone.png";
-import PlayButton from "@/components/common/PlayButton.jsx";
 import VideoModal from "@/components/common/VideoModal.jsx";
 import { useState } from "react";
 import "./Documentary.scss";
@@ -13,15 +12,10 @@ export default function Documentary() {
       className="documentary section"
       style={{ backgroundImage: `url(${phoneMockup})` }}
     >
+      <div className="documentary__bg"></div>
       <div className="container documentary__layout">
-        <button
-          type="button"
-          className="documentary__thumb"
-          onClick={() => setOpen(true)}
-          aria-label="Přehrát dokument Jediná vteřina"
-        >
-          <PlayButton size="md" />
-        </button>
+        {/* Empty div - parent element is grid */}
+        <div></div>
 
         <div className="documentary__copy">
           <h2 className="section-eyebrow">
@@ -40,6 +34,14 @@ export default function Documentary() {
             volantem změnila v jediné vteřině život. Chyba, kterou většina z nás
             považuje za normální řízení.
           </p>
+
+          <button
+            type="button"
+            className="documentary__btn"
+            onClick={() => setOpen(true)}
+          >
+            Přehrát dokument
+          </button>
         </div>
       </div>
 

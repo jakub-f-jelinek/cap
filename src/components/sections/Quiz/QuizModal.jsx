@@ -1,14 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon, XIcon } from "./Icons";
 import "./QuizModal.scss";
 
 const POPUP_FEATURES = "noopener,noreferrer,width=640,height=700";
 
-const SHARE_LABEL = {
-  facebook: "Sdílet na Facebooku",
-  instagram: "Sdílet na Instagramu",
-  whatsapp: "Sdílet na WhatsAppu",
-  x: "Sdílet na X",
+const SHARE_NETWORKS = {
+  facebook: { label: "Sdílet na Facebooku", Icon: FacebookIcon },
+  instagram: { label: "Sdílet na Instagramu", Icon: InstagramIcon },
+  whatsapp: { label: "Sdílet na WhatsAppu", Icon: WhatsAppIcon },
+  x: { label: "Sdílet na X", Icon: XIcon },
 };
 
 export default function QuizModal({ isOpen, onClose, onRestart, result }) {
@@ -127,7 +128,7 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
             className="quiz-modal__result"
           >
             <div
-              className="quiz-modal__result--img"
+              className="quiz-modal__result-bg"
               style={{ backgroundImage: `url(${result.image})` }}
             />
             <div className="quiz-modal__result--content">
@@ -136,18 +137,22 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
               <p className="quiz-modal__description">{result.description}</p>
 
               <div className="quiz-modal__share">
-                {Object.entries(SHARE_LABEL).map(([platform, label]) => (
-                  <button
-                    type="button"
-                    key={platform}
-                    className="quiz-modal__share-btn"
-                    onClick={() => {
-                      void openShare(platform);
-                    }}
-                  >
-                    {label}
-                  </button>
-                ))}
+                {Object.entries(SHARE_NETWORKS).map(
+                  ([platform, { label, Icon }]) => (
+                    <button
+                      type="button"
+                      key={platform}
+                      className="quiz-modal__share-btn"
+                      aria-label={label}
+                      title={label}
+                      onClick={() => {
+                        void openShare(platform);
+                      }}
+                    >
+                      <Icon />
+                    </button>
+                  ),
+                )}
               </div>
             </div>
 

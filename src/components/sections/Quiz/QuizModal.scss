@@ -13,9 +13,16 @@
   &__panel {
     position: relative;
     width: 100%;
-    // background: #060606;
-    background: #010101;
+
+    margin-inline: auto;
+    background: #060606;
+
     border: 1px solid $color-border-soft;
+
+    // Large monitors get a narrower modal than laptop/tablet.
+    @include wide {
+      max-width: 1260px;
+    }
   }
 
   &__close {
@@ -29,25 +36,63 @@
   }
 
   &__result {
+    position: relative;
     text-align: left;
     display: flex;
+    overflow: hidden;
+    min-height: 480px;
 
     h3 {
       @include heading-sm;
       margin-block: 10px 18px;
     }
+
+    @include mobile {
+      display: block;
+      min-height: 520px;
+    }
   }
 
-  &__result--img {
-    width: 50%;
-    background-position: center;
-    background-size: cover;
+  // Result image sits behind the whole panel, with a gradient that fades
+  // it into the panel background so the content stays readable while the
+  // image keeps its own visible space next to it.
+  &__result-bg {
+    position: absolute;
+    inset: 0;
+    background-position: left;
+    background-size: contain;
     background-repeat: no-repeat;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 25%, #010101 80%);
+    }
+
+    @include tablet {
+      background-size: cover;
+    }
   }
 
   &__result--content {
-    width: 50%;
+    position: relative;
+    z-index: 1;
+    width: 55%;
     padding: clamp(20px, 5vw, 60px);
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mobile {
+      width: 100%;
+      min-height: 520px;
+      padding: clamp(24px, 8vw, 40px) clamp(20px, 6vw, 32px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
   }
 
   &__image {
@@ -65,25 +110,27 @@
   }
 
   &__share {
-    // display: grid;
-    // grid-template-columns: repeat(2, minmax(0, 1fr));
     display: flex;
     gap: 10px;
-
-    @include mobile {
-      grid-template-columns: 1fr;
-    }
   }
 
   &__share-btn {
     @include reset-button;
     @include focus-ring;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     border: 1px solid $color-border;
-    text-align: center;
-    padding: 11px 14px;
     transition:
       border-color 0.25s $ease-out,
       background 0.25s $ease-out;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
 
     &:hover,
     &:focus-visible {
