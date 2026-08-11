@@ -85,38 +85,36 @@ export default function Hero() {
   return (
     <section id="hero" className="hero" ref={wrapperRef}>
       <div className="hero__stage">
-        <div className="hero__clip">
-          <video
-            ref={videoRef}
-            className="hero__video"
-            src={heroVideo}
-            muted
-            playsInline
-            preload="auto"
-            onLoadedMetadata={(event) => {
-              event.currentTarget.currentTime =
-                progressRef.current * event.currentTarget.duration;
-            }}
-          />
-          <div className="hero__scrim" />
+        <video
+          ref={videoRef}
+          className="hero__video"
+          src={heroVideo}
+          muted
+          playsInline
+          preload="auto"
+          onLoadedMetadata={(event) => {
+            event.currentTarget.currentTime =
+              progressRef.current * event.currentTarget.duration;
+          }}
+        />
+        <div className="hero__scrim" />
 
-          <div ref={contentRef} className="hero__content">
-            <div ref={textboxRef} className="hero__textbox">
-              <h1>
-                Normální
-                <br />
-                řízení zabíjí
-              </h1>
-            </div>
+        <div ref={contentRef} className="hero__content">
+          <div ref={textboxRef} className="hero__textbox">
+            <h1>
+              Normální
+              <br />
+              řízení zabíjí
+            </h1>
+          </div>
 
-            <div ref={statRef} className="hero__stat">
-              <p className="hero__stat-number">420 ŽIVOTŮ</p>
-              <span className="section-rule" />
-              <p className="hero__stat-copy">
-                Chování, které při řízení považujeme za normální, si od 1.
-                ledna 2026 vyžádalo 420 životů.
-              </p>
-            </div>
+          <div ref={statRef} className="hero__stat">
+            <p className="hero__stat-number">420 ŽIVOTŮ</p>
+            <span className="section-rule" />
+            <p className="hero__stat-copy">
+              Chování, které při řízení považujeme za normální, si od 1. ledna
+              2026 vyžádalo 420 životů.
+            </p>
           </div>
         </div>
       </div>
