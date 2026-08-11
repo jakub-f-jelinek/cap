@@ -6,6 +6,15 @@
     position: sticky;
     top: 0;
     height: 100vh;
+  }
+
+  // overflow:hidden lives on its own (non-sticky) element — combining
+  // position:sticky and overflow:hidden on the same ancestor as a video is
+  // a known WebKit bug on iOS: the video never composites/paints, even at
+  // rest, because the sticky "stuck" layer promotion clips it out.
+  &__clip {
+    position: relative;
+    height: 100%;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -17,6 +26,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    // Forces its own compositing layer independent of ancestor layer
+    // promotion — additional guard against the iOS/WebKit sticky+video bug.
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
     will-change: transform;
   }
 
