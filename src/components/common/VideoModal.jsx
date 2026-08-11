@@ -1,20 +1,27 @@
-import { useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import './VideoModal.scss'
+import heroVideo from "@/assets/video/openart-video.mp4";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
+import "./VideoModal.scss";
 
-export default function VideoModal({ isOpen, onClose, youtubeId, title }) {
+export default function VideoModal({
+  isOpen,
+  onClose,
+  youtubeId,
+  title,
+  videoSrc = heroVideo,
+}) {
   useEffect(() => {
-    if (!isOpen) return undefined
+    if (!isOpen) return undefined;
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', onKeyDown)
+      if (event.key === "Escape") onClose();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [isOpen, onClose])
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   return (
     <AnimatePresence>
@@ -38,7 +45,12 @@ export default function VideoModal({ isOpen, onClose, youtubeId, title }) {
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             onClick={(event) => event.stopPropagation()}
           >
-            <button type="button" className="video-modal__close" onClick={onClose} aria-label="Zavřít video">
+            <button
+              type="button"
+              className="video-modal__close"
+              onClick={onClose}
+              aria-label="Zavřít video"
+            >
               &times;
             </button>
 
@@ -49,6 +61,14 @@ export default function VideoModal({ isOpen, onClose, youtubeId, title }) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
+            ) : videoSrc ? (
+              <video
+                src={videoSrc}
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+              />
             ) : (
               <div className="video-modal__placeholder">
                 <p>Video bude brzy k dispozici.</p>
@@ -58,5 +78,5 @@ export default function VideoModal({ isOpen, onClose, youtubeId, title }) {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
