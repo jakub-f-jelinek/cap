@@ -7,7 +7,10 @@ const SHRINK_END = 1;
 const STAT_START = 0.35;
 const STAT_END = 0.65;
 // Skip re-seeking for sub-frame differences — avoids redundant decode work.
-const SEEK_EPSILON = 1 / 60;
+// Matches the source video's frame rate (24fps): seeking finer than this
+// can't change the rendered frame, so it's pure decode cost — noticeable as
+// scroll jank on weaker Android GPUs.
+const SEEK_EPSILON = 1 / 24;
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -17,7 +20,32 @@ export default function Hero() {
   const progressRef = useRef(0);
 
   useEffect(() => {
-    videoRef.current?.pause();
+    const video = videoRef.current;
+    if (!video) return undefined;
+
+    // iOS Safari never decodes a frame for a video that hasn't played, so
+    // scrubbing via currentTime alone renders nothing. Priming with a
+    // play() immediately followed by pause() forces it to decode without
+    // any visible playback.
+    const primeVideo = () => {
+      video
+        .play()
+        .then(() => {
+          video.pause();
+          if (Number.isFinite(video.duration) && video.duration > 0) {
+            video.currentTime = progressRef.current * video.duration;
+          }
+        })
+        .catch(() => {});
+    };
+
+    if (video.readyState >= 2) {
+      primeVideo();
+    } else {
+      video.addEventListener("loadeddata", primeVideo, { once: true });
+    }
+
+    return () => video.removeEventListener("loadeddata", primeVideo);
   }, []);
 
   const applyProgress = (progress) => {
@@ -34,15 +62,10 @@ export default function Hero() {
     const shrink = Math.min(progress / SHRINK_END, 1);
     if (textboxRef.current) {
       const contentWidth = contentRef.current?.clientWidth ?? 0;
-      console.log("===shrink: ", shrink);
       const textboxWidth = textboxRef.current.offsetWidth;
       const centeredOffset = Math.max((contentWidth - textboxWidth) / 2, 0);
-      // const endOffset = textboxWidth * 0;
       const endOffset = 0;
-      // const translateX = centeredOffset * (1 - shrink) + endOffset * shrink;
       const translateX = centeredOffset * (1 - shrink) + endOffset * shrink;
-
-      console.log("===translateX: ", translateX);
 
       textboxRef.current.style.transform = `translateX(${translateX * 0.92}px) scale(${1 - shrink * 0.42})`;
     }
