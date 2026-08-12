@@ -6,17 +6,21 @@ import DriverCard from "./DriverCard.jsx";
 import "./DriverStories.scss";
 
 const GLASS_MOTION = {
-  x: [-50, -18],
-  y: [-24, 42],
-  scale: [1.5, 2.5],
-  rotate: [-8, 40],
+  desktop: {
+    x: [-50, -18],
+    y: [-24, 42],
+    scale: [1.5, 2.5],
+    rotate: [-8, 40],
+  },
 };
 
 const GLASS_MOTION_2 = {
-  x: [-220, -300],
-  y: [60, 10],
-  scale: [0.6, 1.2],
-  rotate: [0, 70],
+  desktop: {
+    x: [-220, -300],
+    y: [60, 10],
+    scale: [0.6, 1.2],
+    rotate: [0, 70],
+  },
 };
 
 export default function DriverStories() {

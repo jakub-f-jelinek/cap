@@ -72,6 +72,15 @@
 
     @include tablet {
       background-size: cover;
+      background-position: left 40% bottom 0%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #010101;
+        opacity: 45%;
+      }
     }
   }
 
@@ -85,7 +94,7 @@
     flex-direction: column;
     justify-content: center;
 
-    @include mobile {
+    @include tablet {
       width: 100%;
       min-height: 520px;
       padding: clamp(24px, 8vw, 40px) clamp(20px, 6vw, 32px);

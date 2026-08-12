@@ -4,17 +4,21 @@ import ScrollGlass from "@/components/common/ScrollGlass.jsx";
 import "./Statement.scss";
 
 const LEFT_GLASS_MOTION = {
-  x: [-36, 24],
-  y: [-18, 28],
-  scale: [0.88, 1.08],
-  rotate: [-12, 6],
+  desktop: {
+    x: [-36, 24],
+    y: [-18, 28],
+    scale: [0.88, 1.08],
+    rotate: [-12, 6],
+  },
 };
 
 const RIGHT_GLASS_MOTION = {
-  x: [32, -22],
-  y: [18, -22],
-  scale: [1.06, 0.9],
-  rotate: [-6, 12],
+  desktop: {
+    x: [32, -22],
+    y: [18, -22],
+    scale: [1.06, 0.9],
+    rotate: [-6, 12],
+  },
 };
 
 export default function Statement() {

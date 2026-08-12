@@ -24,7 +24,7 @@
     }
 
     @include tablet {
-      display: none;
+      // display: none;
     }
   }
 
@@ -51,7 +51,6 @@
     margin-inline: auto;
     text-align: left;
     padding: clamp(20px, 3vw, 34px);
-    backdrop-filter: blur(4px);
     display: flex;
     justify-content: space-between;
   }

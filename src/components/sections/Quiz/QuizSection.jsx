@@ -10,31 +10,39 @@ import QuizModal from "./QuizModal.jsx";
 import "./QuizSection.scss";
 
 const LEFT_GLASS_MOTION_1 = {
-  x: [-28, 18],
-  y: [-26, 34],
-  scale: [0.9, 1.08],
-  rotate: [-8, 9],
+  desktop: {
+    x: [-28, 18],
+    y: [-26, 34],
+    scale: [0.9, 1.08],
+    rotate: [-8, 9],
+  },
 };
 
 const LEFT_GLASS_MOTION_2 = {
-  x: [100, 200],
-  y: [100, 200],
-  scale: [0.3, 0.5],
-  rotate: [0, 90],
+  desktop: {
+    x: [100, 200],
+    y: [100, 200],
+    scale: [0.3, 0.5],
+    rotate: [0, 90],
+  },
 };
 
 const LEFT_GLASS_MOTION_3 = {
-  x: [-28, 18],
-  y: [220, 340],
-  scale: [0.6, 0.8],
-  rotate: [-8, 9],
+  desktop: {
+    x: [-28, 18],
+    y: [220, 340],
+    scale: [0.6, 0.8],
+    rotate: [-8, 9],
+  },
 };
 
 const RIGHT_GLASS_MOTION = {
-  x: [24, -20],
-  y: [24, -28],
-  scale: [0.5, 0.8],
-  rotate: [0, -40],
+  desktop: {
+    x: [24, -20],
+    y: [24, -28],
+    scale: [0.5, 0.8],
+    rotate: [0, -40],
+  },
 };
 
 export default function QuizSection() {
@@ -177,7 +185,7 @@ export default function QuizSection() {
           </div>
         </div>
 
-        {isLastSlide && (
+        {isLastSlide && selectedAnswer !== null && (
           <button
             type="button"
             className="quiz-section__nav-btn quiz-section__btn--result"
