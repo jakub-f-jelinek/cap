@@ -12,7 +12,7 @@
 
     @include tablet {
       // display: none;
-      transform: scale(0.4);
+      // transform: scale(0.4);
     }
   }
 
@@ -24,10 +24,6 @@
     opacity: 0.9;
     pointer-events: none;
     z-index: 1000;
-
-    @include tablet {
-      // display: none;
-    }
   }
 
   &__grid {
@@ -48,7 +44,7 @@
 
 .driver-card {
   perspective: 1400px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 5;
   outline: none;
 
   &__inner {
@@ -99,13 +95,15 @@
     right: 0;
     bottom: 0;
     padding: 18px 20px;
-    border: 1px solid $color-border-soft;
+    border: 4px solid #fff;
+    background: #0f0f0f;
   }
 
   &__name {
     font-weight: 700;
     font-size: 1.05rem;
     margin-bottom: 6px;
+    text-align: center;
 
     &--dark {
       color: $color-ink;
@@ -116,10 +114,11 @@
     color: $color-text-muted;
     font-size: 0.85rem;
     line-height: 1.5;
+    text-align: center;
 
     display: -webkit-box;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

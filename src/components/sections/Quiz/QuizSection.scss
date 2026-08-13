@@ -14,6 +14,10 @@
     opacity: 0.9;
     pointer-events: none;
 
+    @include tablet {
+      opacity: 0.5;
+    }
+
     &--left {
       left: clamp(-60px, -2vw, 20px);
     }
@@ -22,16 +26,17 @@
       right: clamp(-60px, -2vw, 20px);
       transform: translateY(-50%) scaleX(-1);
     }
-
-    @include tablet {
-      // display: none;
-    }
   }
 
   &__inner {
     position: relative;
     z-index: 1;
     max-width: 980px;
+    min-height: 455px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h2 {
       @include heading-lg;
@@ -51,6 +56,7 @@
     margin-inline: auto;
     text-align: left;
     padding: clamp(20px, 3vw, 34px);
+    padding-bottom: 0;
     display: flex;
     justify-content: space-between;
   }
@@ -164,6 +170,36 @@
       cursor: not-allowed;
     }
   }
+
+  &__pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-block: 24px;
+
+    .swiper-pagination-bullet {
+      border: 0;
+      padding: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-text-faint;
+      opacity: 1;
+      transition: background 0.25s $ease-out;
+      cursor: pointer;
+      margin: 0 !important;
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      background: $color-white;
+    }
+  }
 }
 
 .arrow {
@@ -179,6 +215,22 @@
 
 .arrow--right {
   transform: rotate(-45deg);
+}
+
+.quiz-section__start-btn {
+  border-radius: 6px;
+  background: $color-white;
+  color: #000;
+  border: 1px solid transparent;
+  min-width: 160px;
+  height: 48px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s $ease-out;
+
+  &:hover {
+    transform: scale(0.96);
+  }
 }
 
 .quiz-section__btn--result {

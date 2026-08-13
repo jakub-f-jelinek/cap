@@ -46,14 +46,24 @@ const RIGHT_GLASS_MOTION = {
 };
 
 export default function QuizSection() {
+  const [started, setStarted] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [answers, setAnswers] = useState(() => quizQuestions.map(() => null));
-  const [resultOpen, setResultOpen] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(null);
 
   const question = quizQuestions[activeSlide];
   const selectedAnswer = answers[activeSlide];
   const isLastSlide = activeSlide === quizQuestions.length - 1;
+  const firstUnansweredSlide = answers.findIndex((answer) => answer === null);
+  const maxReachableSlide =
+    firstUnansweredSlide === -1
+      ? quizQuestions.length - 1
+      : firstUnansweredSlide;
+
+  const handleStart = () => {
+    setStarted(true);
+  };
 
   const handleAnswerChange = (score) => {
     setAnswers((prev) => {
@@ -69,18 +79,27 @@ export default function QuizSection() {
     if (isLastSlide) {
       const totalScore = answers.reduce((sum, value) => sum + (value ?? 0), 0);
       setResult(getQuizResult(totalScore));
-      setResultOpen(true);
+      setShowResult(true);
       return;
     }
 
     setActiveSlide((prev) => prev + 1);
   };
 
+  const handlePrev = () => {
+    setActiveSlide((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handlePaginationClick = (index) => {
+    if (index > maxReachableSlide) return;
+    setActiveSlide(index);
+  };
+
   const handleRestart = () => {
     setAnswers(quizQuestions.map(() => null));
     setActiveSlide(0);
     setResult(null);
-    setResultOpen(false);
+    setShowResult(false);
   };
 
   return (
@@ -121,86 +140,124 @@ export default function QuizSection() {
           jízdy.
         </p>
 
-        <div
-          className="quiz-section__slider"
-          role="group"
-          aria-label="Řidičský kvíz"
-        >
-          <div className="btn__container">
-            <button
-              type="button"
-              className="quiz-section__nav-btn arrow arrow--left"
-              onClick={() => setActiveSlide((prev) => Math.max(prev - 1, 0))}
-              disabled={activeSlide === 0}
-            />
-          </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeSlide}
-              className="quiz-section__slide"
-              initial={{ opacity: 0, x: 18 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -18 }}
-              transition={{ duration: 0.25 }}
-            >
-              <h3>
-                {activeSlide + 1}. {question.question}
-              </h3>
-
-              <div
-                className="quiz-section__options"
-                role="radiogroup"
-                aria-label={question.question}
-              >
-                {question.options.map((option, optionIndex) => {
-                  const optionId = `quiz-${activeSlide}-${optionIndex}`;
-                  return (
-                    <label
-                      key={optionId}
-                      htmlFor={optionId}
-                      className="quiz-section__option"
-                    >
-                      <input
-                        id={optionId}
-                        type="radio"
-                        name={`quiz-question-${activeSlide}`}
-                        checked={selectedAnswer === option.score}
-                        onChange={() => handleAnswerChange(option.score)}
-                      />
-                      <span>{option.label}</span>
-                    </label>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="btn__container">
-            <button
-              type="button"
-              className="quiz-section__nav-btn quiz-section__nav-btn--next arrow arrow--right"
-              onClick={handleNext}
-              disabled={selectedAnswer === null}
-            />
-          </div>
-        </div>
-
-        {isLastSlide && selectedAnswer !== null && (
+        {!started && (
           <button
             type="button"
-            className="quiz-section__nav-btn quiz-section__btn--result"
-            onClick={handleNext}
-            disabled={selectedAnswer === null}
+            className="quiz-section__start-btn"
+            onClick={handleStart}
           >
-            Vyhodnotit
+            Spustit test
           </button>
+        )}
+
+        {started && (
+          <>
+            <div
+              className="quiz-section__slider"
+              role="group"
+              aria-label="Řidičský kvíz"
+            >
+              <div className="btn__container">
+                <button
+                  type="button"
+                  className="quiz-section__nav-btn arrow arrow--left"
+                  onClick={handlePrev}
+                  disabled={activeSlide === 0}
+                />
+              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSlide}
+                  className="quiz-section__slide"
+                  initial={{ opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -18 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <h3>
+                    {activeSlide + 1}. {question.question}
+                  </h3>
+
+                  <div
+                    className="quiz-section__options"
+                    role="radiogroup"
+                    aria-label={question.question}
+                  >
+                    {question.options.map((option, optionIndex) => {
+                      const optionId = `quiz-${activeSlide}-${optionIndex}`;
+                      return (
+                        <label
+                          key={optionId}
+                          htmlFor={optionId}
+                          className="quiz-section__option"
+                        >
+                          <input
+                            id={optionId}
+                            type="radio"
+                            name={`quiz-question-${activeSlide}`}
+                            checked={selectedAnswer === option.score}
+                            onChange={() => handleAnswerChange(option.score)}
+                          />
+                          <span>{option.label}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              <div className="btn__container">
+                <button
+                  type="button"
+                  className="quiz-section__nav-btn quiz-section__nav-btn--next arrow arrow--right"
+                  onClick={handleNext}
+                  disabled={selectedAnswer === null}
+                />
+              </div>
+            </div>
+
+            <div
+              className="quiz-section__pagination"
+              role="tablist"
+              aria-label="Otázky kvízu"
+            >
+              {quizQuestions.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  role="tab"
+                  className={`swiper-pagination-bullet${
+                    index === activeSlide
+                      ? " swiper-pagination-bullet-active"
+                      : ""
+                  }`}
+                  aria-label={`Otázka ${index + 1}`}
+                  aria-selected={index === activeSlide}
+                  aria-current={index === activeSlide}
+                  onClick={() => handlePaginationClick(index)}
+                  disabled={index > maxReachableSlide}
+                />
+              ))}
+            </div>
+
+            {isLastSlide && selectedAnswer !== null && (
+              <button
+                type="button"
+                className="quiz-section__nav-btn quiz-section__btn--result"
+                onClick={handleNext}
+                disabled={selectedAnswer === null}
+              >
+                Vyhodnotit
+              </button>
+            )}
+          </>
         )}
       </div>
 
       <QuizModal
-        isOpen={resultOpen}
+        isOpen={showResult}
         result={result}
-        onClose={() => setResultOpen(false)}
+        onClose={() => setShowResult(false)}
         onRestart={handleRestart}
       />
     </section>

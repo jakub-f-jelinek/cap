@@ -18,6 +18,16 @@ body {
   scroll-margin-top: 24px;
 }
 
+// Wraps a group of adjacent sections between which an absolutely
+// positioned decorative element (e.g. ScrollGlass) is allowed to bleed
+// vertically. overflow-x: clip (not hidden) avoids the CSS rule that
+// forces the other axis to `auto` when one axis is non-visible, so
+// overflow-y stays truly `visible` and the bleed keeps working.
+.section-bleed {
+  position: relative;
+  overflow-x: clip;
+}
+
 .section-eyebrow {
   @include eyebrow;
   color: $color-white;

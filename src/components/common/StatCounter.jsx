@@ -1,12 +1,12 @@
-import { useCountUp } from "@/hooks/useCountUp.js";
 import { useInView } from "@/hooks/useInView.js";
+import { useCountUp } from "../../hooks/useCountUp";
 import "./StatCounter.scss";
 
 export default function StatCounter({
   value,
   suffix = " %",
   label,
-  duration = 1400,
+  duration = 900,
 }) {
   const [ref, inView] = useInView({ threshold: 0.5 });
   const count = useCountUp(value, { start: inView, duration });
