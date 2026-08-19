@@ -1,4 +1,4 @@
-import heroVideo from "@/assets/video/openart-video.mp4";
+import heroVideo from "@/assets/video/open-video-hero.mp4";
 import { useScrollScrub } from "@/hooks/useScrollScrub.js";
 import { useEffect, useRef } from "react";
 import "./Hero.scss";
