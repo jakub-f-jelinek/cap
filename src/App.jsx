@@ -22,8 +22,10 @@ export default function App() {
           <Documentary />
           <DriverStories />
         </section>
-        <QuizSection />
-        <NewsSlider />
+        <section className="section-bleed">
+          <QuizSection />
+          <NewsSlider />
+        </section>
       </main>
       <Footer />
     </>

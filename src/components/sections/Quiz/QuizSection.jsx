@@ -1,7 +1,10 @@
-import glassRight from "@/assets/glass/glass-18-1.png";
-import glassLeft_1 from "@/assets/glass/glass-19-1.png";
-import glassLeft_2 from "@/assets/glass/glass-19-2.png";
-import glassLeft_3 from "@/assets/glass/glass-19-3.png";
+import glassRight_1 from "@/assets/glass/glass_quiz_right-1.png";
+import glassRight_2 from "@/assets/glass/glass_quiz_right-2.png";
+import glassRight_3 from "@/assets/glass/glass_quiz_right-3.png";
+
+import glassLeft_1 from "@/assets/glass/glass_quiz_left-1.png";
+import glassLeft_2 from "@/assets/glass/glass_quiz_left-2.png";
+import glassLeft_3 from "@/assets/glass/glass_quiz_left-3.png";
 import ScrollGlass from "@/components/common/ScrollGlass.jsx";
 import { getQuizResult, quizQuestions } from "@/data/quiz.js";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,37 +14,96 @@ import "./QuizSection.scss";
 
 const LEFT_GLASS_MOTION_1 = {
   desktop: {
-    x: [-28, 18],
+    x: [0, 100],
     y: [-26, 34],
-    scale: [0.9, 1.08],
-    rotate: [-8, 9],
+    scale: [1.3, 1.8],
+    rotate: [-8, 15],
+  },
+
+  tablet: {
+    x: [0, 0],
+    y: [-26, 34],
+    scale: [1.3, 1.8],
+    rotate: [-8, 15],
   },
 };
 
 const LEFT_GLASS_MOTION_2 = {
   desktop: {
-    x: [100, 200],
-    y: [100, 200],
-    scale: [0.3, 0.5],
-    rotate: [0, 90],
+    x: [150, 170],
+    y: [-100, -150],
+    scale: [0.3, 0.4],
+    rotate: [0, 50],
+  },
+
+  tablet: {
+    x: [0, 10],
+    y: [-100, -150],
+    scale: [0.3, 0.4],
+    rotate: [0, 50],
   },
 };
 
 const LEFT_GLASS_MOTION_3 = {
   desktop: {
-    x: [-28, 18],
-    y: [220, 340],
-    scale: [0.6, 0.8],
-    rotate: [-8, 9],
+    x: [220, 280],
+    y: [-50, -80],
+    scale: [0.2, 0.3],
+    rotate: [0, 90],
+  },
+
+  tablet: {
+    x: [60, 90],
+    y: [-50, -80],
+    scale: [0.2, 0.3],
+    rotate: [0, 90],
   },
 };
 
-const RIGHT_GLASS_MOTION = {
+const RIGHT_GLASS_MOTION_1 = {
   desktop: {
     x: [24, -20],
-    y: [24, -28],
-    scale: [0.5, 0.8],
+    y: [80, 160],
+    scale: [1.3, 1.8],
     rotate: [0, -40],
+  },
+
+  tablet: {
+    x: [24, -20],
+    y: [170, 220],
+    scale: [1.3, 1.8],
+    rotate: [0, -40],
+  },
+};
+
+const RIGHT_GLASS_MOTION_2 = {
+  desktop: {
+    x: [-80, -150],
+    y: [-120, -140],
+    scale: [0.4, 0.6],
+    rotate: [0, 90],
+  },
+  tablet: {
+    x: [0, 0],
+    y: [-60, -100],
+    scale: [0.2, 0.4],
+    rotate: [0, 90],
+  },
+};
+
+const RIGHT_GLASS_MOTION_3 = {
+  desktop: {
+    x: [0, 40],
+    y: [-150, -180],
+    scale: [0.1, 0.2],
+    rotate: [0, 90],
+  },
+
+  tablet: {
+    x: [0, 40],
+    y: [-120, -170],
+    scale: [0.1, 0.2],
+    rotate: [0, 90],
   },
 };
 
@@ -124,8 +186,20 @@ export default function QuizSection() {
       />
       <ScrollGlass
         className="quiz-section__glass quiz-section__glass--right"
-        src={glassRight}
-        motion={RIGHT_GLASS_MOTION}
+        src={glassRight_1}
+        motion={RIGHT_GLASS_MOTION_1}
+        offsetY="-50%"
+      />
+      <ScrollGlass
+        className="quiz-section__glass quiz-section__glass--right"
+        src={glassRight_2}
+        motion={RIGHT_GLASS_MOTION_2}
+        offsetY="-50%"
+      />
+      <ScrollGlass
+        className="quiz-section__glass quiz-section__glass--right"
+        src={glassRight_3}
+        motion={RIGHT_GLASS_MOTION_3}
         offsetY="-50%"
       />
 
