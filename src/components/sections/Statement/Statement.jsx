@@ -1,10 +1,35 @@
 import statementVideo from "@/assets/video/statement-glass.mp4";
 import { useVideoScrub } from "@/hooks/useVideoScrub.js";
+import { useRef } from "react";
 import "./Statement.scss";
 
+const BOX_SCALE_START = 0.2;
+const BOX_SCALE_END = 0.8;
+const BOX_BLUR_START = 2;
+const BOX_BLUR_END = 1;
+// Blur má být hotový dřív než scale - doběhne na BOX_BLUR_END už ve 30 %
+// scrollu místo až na konci.
+const BLUR_END_PROGRESS = 0.1;
+
 export default function Statement() {
+  const boxRef = useRef(null);
+
+  const applyExtraProgress = (progress) => {
+    if (!boxRef.current) return;
+
+    const scale =
+      BOX_SCALE_START + (BOX_SCALE_END - BOX_SCALE_START) * progress;
+
+    const blurProgress = Math.min(progress / BLUR_END_PROGRESS, 1);
+    const blur =
+      BOX_BLUR_START + (BOX_BLUR_END - BOX_BLUR_START) * blurProgress;
+
+    boxRef.current.style.transform = `scale(${scale})`;
+    boxRef.current.style.filter = `blur(${blur}px)`;
+  };
+
   const { videoRef, wrapperRef, progressRef, seekToProgress } =
-    useVideoScrub();
+    useVideoScrub(applyExtraProgress);
 
   return (
     <section id="statement" className="statement" ref={wrapperRef}>
@@ -26,7 +51,7 @@ export default function Statement() {
         <div className="statement__scrim" />
 
         <div className="container">
-          <div className="statement__box">
+          <div ref={boxRef} className="statement__box">
             <h2>
               Normální řízení zabíjí,
               <br />i když si to nepřipouštíme

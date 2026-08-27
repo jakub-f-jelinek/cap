@@ -39,6 +39,7 @@
     text-align: center;
     border: 6px solid #ffff;
     padding: clamp(36px, 6vw, 64px) clamp(24px, 6vw, 72px);
+    will-change: transform, filter;
 
     h2 {
       @include eyebrow;

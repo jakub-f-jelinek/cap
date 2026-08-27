@@ -1,34 +1,64 @@
 import heroVideo from "@/assets/video/open-video-hero.mp4";
 import { useVideoScrub } from "@/hooks/useVideoScrub.js";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import "./Hero.scss";
 
 const SHRINK_END = 1;
 const STAT_START = 0.35;
 const STAT_END = 0.65;
 
+// Video má na startu skoro černý obraz - přeskočíme prvních 10 % stopáže,
+// ať scroll hned něco ukazuje místo černé.
+const VIDEO_MIN_PROGRESS = 0.1;
+
 export default function Hero() {
   const contentRef = useRef(null);
   const textboxRef = useRef(null);
   const statRef = useRef(null);
+  // Přirozená (netransformovaná) pozice textboxu podle CSS flow - měří se
+  // jen při mountu/resize, ať se z ní dá dopočítat posun do středu obrazovky.
+  const naturalTextboxRef = useRef({ left: 0, top: 0, width: 0, height: 0 });
+
+  const measureNaturalTextbox = () => {
+    const textbox = textboxRef.current;
+    if (!textbox) return;
+
+    const previousTransform = textbox.style.transform;
+    textbox.style.transform = "none";
+    const rect = textbox.getBoundingClientRect();
+    textbox.style.transform = previousTransform;
+
+    naturalTextboxRef.current = {
+      left: rect.left,
+      top: rect.top,
+      width: rect.width,
+      height: rect.height,
+    };
+  };
+
+  useLayoutEffect(() => {
+    measureNaturalTextbox();
+    window.addEventListener("resize", measureNaturalTextbox);
+    return () => window.removeEventListener("resize", measureNaturalTextbox);
+  }, []);
 
   const applyExtraProgress = (progress) => {
     // Textbox animation
     const shrink = Math.min(progress / SHRINK_END, 1);
 
     if (textboxRef.current) {
-      const contentWidth = contentRef.current?.clientWidth ?? 0;
+      const { left, top, width, height } = naturalTextboxRef.current;
 
-      const textboxWidth = textboxRef.current.offsetWidth;
+      // Na startu (shrink 0) má být textbox přesně na středu obrazovky (X i Y),
+      // na konci (shrink 1) v přirozené pozici dané CSS flow (offset 0).
+      const centeredOffsetX = window.innerWidth / 2 - (left + width / 2);
+      const centeredOffsetY = window.innerHeight / 2 - (top + height / 2);
 
-      const centeredOffset = Math.max((contentWidth - textboxWidth) / 2, 0);
-
-      const endOffset = 0;
-
-      const translateX = centeredOffset * (1 - shrink) + endOffset * shrink;
+      const translateX = centeredOffsetX * (1 - shrink);
+      const translateY = centeredOffsetY * (1 - shrink);
 
       textboxRef.current.style.transform = `
-        translateX(${translateX * 0.92}px)
+        translate(${translateX}px, ${translateY}px)
         scale(${1 - shrink * 0.42})
       `;
     }
@@ -46,8 +76,10 @@ export default function Hero() {
     }
   };
 
-  const { videoRef, wrapperRef, progressRef, seekToProgress } =
-    useVideoScrub(applyExtraProgress);
+  const { videoRef, wrapperRef, progressRef, seekToProgress } = useVideoScrub(
+    applyExtraProgress,
+    { minProgress: VIDEO_MIN_PROGRESS },
+  );
 
   return (
     <section id="hero" className="hero" ref={wrapperRef}>

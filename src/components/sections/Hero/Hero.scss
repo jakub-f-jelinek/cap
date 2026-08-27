@@ -48,6 +48,7 @@
     padding: clamp(22px, 3.4vw, 44px) clamp(26px, 4.4vw, 52px);
     transform-origin: left center;
     will-change: transform;
+    border: 6px solid #000;
 
     h1 {
       font-weight: 800;
