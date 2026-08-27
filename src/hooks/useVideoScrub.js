@@ -26,8 +26,7 @@ export function useVideoScrub(onProgress, { minProgress = 0 } = {}) {
     if (!Number.isFinite(video.duration) || video.duration <= 0) return;
 
     const clampedProgress = Math.min(Math.max(progress, 0), 1);
-    const remappedProgress =
-      minProgress + clampedProgress * (1 - minProgress);
+    const remappedProgress = minProgress + clampedProgress * (1 - minProgress);
     const duration = video.duration;
     const maxTime = Math.max(duration - IOS_FRAME_EPSILON, 0);
     const baseTargetTime = remappedProgress * duration;

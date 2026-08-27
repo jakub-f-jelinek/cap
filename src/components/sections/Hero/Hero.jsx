@@ -9,30 +9,40 @@ const STAT_END = 0.65;
 
 // Video má na startu skoro černý obraz - přeskočíme prvních 10 % stopáže,
 // ať scroll hned něco ukazuje místo černé.
-const VIDEO_MIN_PROGRESS = 0.1;
+const VIDEO_MIN_PROGRESS = 0.12;
 
 export default function Hero() {
   const contentRef = useRef(null);
+  const stageRef = useRef(null);
   const textboxRef = useRef(null);
   const statRef = useRef(null);
-  // Přirozená (netransformovaná) pozice textboxu podle CSS flow - měří se
-  // jen při mountu/resize, ať se z ní dá dopočítat posun do středu obrazovky.
+  // Přirozená (netransformovaná) pozice textboxu podle CSS flow, měřená
+  // relativně vůči .hero__stage - měří se jen při mountu/resize, ať se z ní
+  // dá dopočítat posun do středu obrazovky.
+  //
+  // Musí to být relativně vůči stage, ne vůči viewportu: stage je sticky, a
+  // pokud se přeměření spustí (např. přes "resize", který na mobilu vyvolá
+  // i schování/zobrazení adresního řádku při scrollu) ve chvíli, kdy je Hero
+  // odscrollovaná mimo obrazovku, stage není "přilepená" nahoře a
+  // getBoundingClientRect() by vrátil úplně jinou (posunutou) pozici.
   const naturalTextboxRef = useRef({ left: 0, top: 0, width: 0, height: 0 });
 
   const measureNaturalTextbox = () => {
     const textbox = textboxRef.current;
-    if (!textbox) return;
+    const stage = stageRef.current;
+    if (!textbox || !stage) return;
 
     const previousTransform = textbox.style.transform;
     textbox.style.transform = "none";
-    const rect = textbox.getBoundingClientRect();
+    const textboxRect = textbox.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
     textbox.style.transform = previousTransform;
 
     naturalTextboxRef.current = {
-      left: rect.left,
-      top: rect.top,
-      width: rect.width,
-      height: rect.height,
+      left: textboxRect.left - stageRect.left,
+      top: textboxRect.top - stageRect.top,
+      width: textboxRect.width,
+      height: textboxRect.height,
     };
   };
 
@@ -51,6 +61,9 @@ export default function Hero() {
 
       // Na startu (shrink 0) má být textbox přesně na středu obrazovky (X i Y),
       // na konci (shrink 1) v přirozené pozici dané CSS flow (offset 0).
+      // Stage je vždy přilepená na (0, 0) viewportu, dokud se shrink počítá
+      // (mimo tento rozsah je translate stejně vynulovaný přes (1 - shrink)),
+      // takže offset vůči stage je totéž co offset vůči viewportu.
       const centeredOffsetX = window.innerWidth / 2 - (left + width / 2);
       const centeredOffsetY = window.innerHeight / 2 - (top + height / 2);
 
@@ -83,7 +96,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero" ref={wrapperRef}>
-      <div className="hero__stage">
+      <div className="hero__stage" ref={stageRef}>
         <video
           ref={videoRef}
           className="hero__video"

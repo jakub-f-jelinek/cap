@@ -3,9 +3,9 @@ import { useVideoScrub } from "@/hooks/useVideoScrub.js";
 import { useRef } from "react";
 import "./Statement.scss";
 
-const BOX_SCALE_START = 0.2;
+const BOX_SCALE_START = 0.4;
 const BOX_SCALE_END = 0.8;
-const BOX_BLUR_START = 2;
+const BOX_BLUR_START = 16;
 const BOX_BLUR_END = 1;
 // Blur má být hotový dřív než scale - doběhne na BOX_BLUR_END už ve 30 %
 // scrollu místo až na konci.

@@ -28,7 +28,7 @@ const LEFT_GLASS_MOTION_1 = {
   mobile: {
     x: [0, 0],
     y: [-26, 34],
-    scale: [1.3, 1.8],
+    scale: [1.1, 1.5],
     rotate: [-8, 15],
   },
 };
@@ -92,7 +92,7 @@ const RIGHT_GLASS_MOTION_1 = {
   mobile: {
     x: [0, 80],
     y: [170, 220],
-    scale: [1.3, 1.8],
+    scale: [1.1, 1.5],
     rotate: [0, -40],
   },
 };
