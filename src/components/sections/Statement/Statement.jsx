@@ -7,9 +7,16 @@ const BOX_SCALE_START = 0.4;
 const BOX_SCALE_END = 0.8;
 const BOX_BLUR_START = 16;
 const BOX_BLUR_END = 1;
-// Blur má být hotový dřív než scale - doběhne na BOX_BLUR_END už ve 30 %
-// scrollu místo až na konci.
-const BLUR_END_PROGRESS = 0.1;
+const BOX_OPACITY_START = 0;
+const BOX_OPACITY_END = 1;
+
+// Video má na startu skoro černý obraz, než praskne sklo - přeskočíme
+// prvních pár % stopáže, ať scroll hned něco ukazuje místo černé.
+const VIDEO_MIN_PROGRESS = 0.05;
+
+// Opacity a blur mají doběhnout na finální hodnotu dřív než scale (ten běží
+// až do konce scrollu), ale postupně - ne skoro okamžitě.
+const SHATTER_PROGRESS = 0.8;
 
 export default function Statement() {
   const boxRef = useRef(null);
@@ -20,16 +27,22 @@ export default function Statement() {
     const scale =
       BOX_SCALE_START + (BOX_SCALE_END - BOX_SCALE_START) * progress;
 
-    const blurProgress = Math.min(progress / BLUR_END_PROGRESS, 1);
+    const shatterProgress = Math.min(progress / SHATTER_PROGRESS, 1);
     const blur =
-      BOX_BLUR_START + (BOX_BLUR_END - BOX_BLUR_START) * blurProgress;
+      BOX_BLUR_START + (BOX_BLUR_END - BOX_BLUR_START) * shatterProgress;
+    const opacity =
+      BOX_OPACITY_START +
+      (BOX_OPACITY_END - BOX_OPACITY_START) * shatterProgress;
 
     boxRef.current.style.transform = `scale(${scale})`;
     boxRef.current.style.filter = `blur(${blur}px)`;
+    boxRef.current.style.opacity = String(opacity);
   };
 
-  const { videoRef, wrapperRef, progressRef, seekToProgress } =
-    useVideoScrub(applyExtraProgress);
+  const { videoRef, wrapperRef, progressRef, seekToProgress } = useVideoScrub(
+    applyExtraProgress,
+    { minProgress: VIDEO_MIN_PROGRESS },
+  );
 
   return (
     <section id="statement" className="statement" ref={wrapperRef}>

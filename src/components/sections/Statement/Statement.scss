@@ -1,6 +1,6 @@
 .statement {
   position: relative;
-  height: 260vh;
+  height: 200vh;
 
   &__stage {
     position: sticky;
@@ -35,11 +35,12 @@
     position: relative;
     z-index: 1;
     max-width: 760px;
+    margin-bottom: 100px;
     margin-inline: auto;
     text-align: center;
     border: 6px solid #ffff;
     padding: clamp(36px, 6vw, 64px) clamp(24px, 6vw, 72px);
-    will-change: transform, filter;
+    will-change: transform, filter, opacity;
 
     h2 {
       @include eyebrow;
