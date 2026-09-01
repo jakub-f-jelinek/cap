@@ -41,6 +41,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1100;
+    padding-block: 64px;
 
     h2 {
       @include heading-lg;
@@ -164,13 +166,14 @@
     height: 24px;
     width: 24px;
     font-weight: 700;
+    z-index: 1100;
     transition:
       border-color 0.2s $ease-out,
       background 0.2s $ease-out,
       color 0.2s $ease-out;
 
     &:disabled {
-      opacity: 0.4;
+      // opacity: 0.4;
       cursor: not-allowed;
     }
   }

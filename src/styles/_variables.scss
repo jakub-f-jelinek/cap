@@ -10,11 +10,12 @@ $color-border: rgba(255, 255, 255, 0.22);
 $color-border-soft: rgba(255, 255, 255, 0.12);
 
 $color-accent-box: #f0eefb; // light lavender label box
-$color-ink: #111013; // text on light boxes
+// $color-ink: #111013; // text on light boxes
+$color-ink: #262626; // text on light boxes
 $color-purple: #7c5cfa;
 
 // Typography
-$font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Layout
 $container-max: 1360px;

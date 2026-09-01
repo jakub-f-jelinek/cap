@@ -20,8 +20,8 @@ export default function DriverCard({ driver, tint = 0 }) {
           <p className="driver-card__name driver-card__name--dark">
             {driver.name}
           </p>
-          <span className="section-rule" />
           <p className="driver-card__bio">{driver.bio}</p>
+          <span className="section-rule" />
         </div>
       </div>
     </div>

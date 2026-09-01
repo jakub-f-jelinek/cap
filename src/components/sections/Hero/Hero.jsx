@@ -1,4 +1,5 @@
-import heroVideo from "@/assets/video/open-video-hero.mp4";
+// import heroVideo from "@/assets/video/open-video-hero.mp4";
+import heroVideo from "@/assets/video/cap-openart-video.mp4";
 import { useVideoScrub } from "@/hooks/useVideoScrub.js";
 import { useLayoutEffect, useRef } from "react";
 import "./Hero.scss";
