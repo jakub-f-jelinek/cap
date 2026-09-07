@@ -85,8 +85,8 @@ export const RIGHT_GLASS_MOTION_1 = {
 
 export const RIGHT_GLASS_MOTION_2 = {
   desktop: {
-    x: [-80, -150],
-    y: [-120, -140],
+    x: [-130, -150],
+    y: [-130, -190],
     scale: [0.4, 0.6],
     rotate: [0, 90],
   },

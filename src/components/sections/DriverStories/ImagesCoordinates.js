@@ -3,19 +3,19 @@ export const GLASS_MOTION = {
     x: [-50, -18],
     y: [-24, 42],
     scale: [1.5, 2.5],
-    rotate: [-8, 40],
+    rotate: [-8, 20],
   },
   tablet: {
     x: [50, 0],
     y: [-24, 42],
     scale: [1, 1.5],
-    rotate: [-8, 40],
+    rotate: [-8, 20],
   },
   mobile: {
     x: [50, 0],
     y: [-24, 42],
     scale: [1, 1.5],
-    rotate: [-8, 40],
+    rotate: [-8, 20],
   },
 };
 
@@ -27,7 +27,7 @@ export const GLASS_MOTION_2 = {
     rotate: [0, 70],
   },
   tablet: {
-    x: [-10, -60],
+    x: [-40, -60],
     y: [-80, -120],
     scale: [0.2, 0.4],
     rotate: [0, 70],
@@ -49,13 +49,13 @@ export const GLASS_MOTION_3 = {
   },
   tablet: {
     x: [-80, -150],
-    y: [20, -60],
+    y: [40, -20],
     scale: [0.2, 0.3],
     rotate: [0, 70],
   },
   mobile: {
     x: [-80, -150],
-    y: [20, -60],
+    y: [40, -20],
     scale: [0.2, 0.3],
     rotate: [0, 70],
   },

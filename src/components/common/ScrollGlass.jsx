@@ -5,7 +5,7 @@ const EPSILON = 0.005;
 
 // Keep in sync with $bp-mobile / $bp-tablet in src/styles/_variables.scss
 const BP_MOBILE = 480;
-const BP_TABLET = 768;
+const BP_TABLET = 992;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const interpolate = ([start, end], progress) =>
@@ -25,8 +25,11 @@ const isBreakpointMotion = (motion) =>
   ("desktop" in motion || "tablet" in motion || "mobile" in motion);
 
 const resolveMotionForViewport = (motion, viewport) => {
-  const { desktop: desktopMotion, tablet: tabletMotion, mobile: mobileMotion } =
-    isBreakpointMotion(motion) ? motion : { desktop: motion };
+  const {
+    desktop: desktopMotion,
+    tablet: tabletMotion,
+    mobile: mobileMotion,
+  } = isBreakpointMotion(motion) ? motion : { desktop: motion };
 
   if (viewport === "mobile") return mobileMotion ?? desktopMotion;
   if (viewport === "tablet") return tabletMotion ?? desktopMotion;

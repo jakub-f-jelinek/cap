@@ -1,4 +1,5 @@
 // import heroVideo from "@/assets/video/open-video-hero.mp4";
+import logo from "@/assets/images/web-logo.png";
 import heroVideo from "@/assets/video/cap-openart-video.mp4";
 import { useVideoScrub } from "@/hooks/useVideoScrub.js";
 import { useLayoutEffect, useRef } from "react";
@@ -116,13 +117,13 @@ export default function Hero() {
 
         <div ref={contentRef} className="hero__content">
           <div ref={textboxRef} className="hero__textbox">
-            <h1>
-              Normální
-              <br />
-              řízení zabíjí
-            </h1>
+            <img
+              className="hero__logo"
+              src={logo}
+              alt="čap-logo"
+              loading="lazy"
+            />
           </div>
-
           <div ref={statRef} className="hero__stat">
             <p className="hero__stat-number">420 ŽIVOTŮ</p>
 
@@ -130,7 +131,8 @@ export default function Hero() {
 
             <p className="hero__stat-copy">
               Chování, které při řízení považujeme za normální, si od 1. ledna
-              2026 vyžádalo 420 životů.
+              2026 vyžádalo <br />
+              420 životů.
             </p>
           </div>
         </div>

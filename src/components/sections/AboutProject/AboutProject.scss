@@ -1,0 +1,50 @@
+.about-project {
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(40px, 6vw, 96px);
+
+    @include desktop-down {
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 8vw, 64px);
+    }
+  }
+
+  &__intro-text {
+    margin-top: clamp(28px, 4vw, 40px);
+  }
+
+  &__intro p {
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 480px;
+
+    & + p {
+      margin-top: 16px;
+    }
+  }
+
+  &__members {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    margin-top: clamp(28px, 4vw, 40px);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__member-name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+
+  &__member-role {
+    color: $color-text-muted;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}

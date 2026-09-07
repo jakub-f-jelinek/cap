@@ -1,7 +1,6 @@
 .footer {
-  background: linear-gradient(180deg, $color-bg 0%, #0d0d10 100%);
+  background: radial-gradient(#232323 0%, #131313 100%);
   padding-block: clamp(56px, 8vw, 96px) clamp(32px, 6vw, 56px);
-  border-top: 1px solid $color-border-soft;
 
   &__inner {
     display: grid;
@@ -15,23 +14,25 @@
   }
 
   &__badge {
-    background: $color-accent-box;
-    color: $color-ink;
-    font-weight: 800;
-    font-size: 1rem;
-    line-height: 1.25;
-    padding: 18px 22px;
-    width: fit-content;
-    white-space: nowrap;
+    max-width: 182px;
+    height: auto;
   }
 
-  &__columns {
+  &__groups {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(24px, 4vw, 48px);
+    gap: clamp(24px, 2vw, 48px);
+
+    > .footer__column:nth-child(2) {
+      padding-left: 30px;
+    }
 
     @include tablet {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      > .footer__column:nth-child(2) {
+        padding-left: 0px;
+      }
     }
 
     @include mobile {
@@ -39,21 +40,53 @@
     }
   }
 
+  &__contact-name,
   &__column-title {
-    @include eyebrow;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     color: $color-white;
+    margin-bottom: 6px;
+  }
+
+  &__column-title {
     margin-bottom: 14px;
+  }
+
+  &__contact-role {
+    color: $color-text-muted;
+    font-size: 0.75rem;
+    margin-bottom: 18px;
+  }
+
+  &__contact-email,
+  &__contact-phone,
+  &__contact-address {
+    display: block;
+    color: $color-text-muted;
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  &__contact-email,
+  &__contact-phone {
+    transition: color 0.2s $ease-out;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+    }
   }
 
   &__column ul {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 
   &__column a {
     color: $color-text-muted;
-    font-size: 0.92rem;
+    font-size: 0.75rem;
     transition: color 0.2s $ease-out;
 
     &:hover,

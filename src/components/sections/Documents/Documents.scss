@@ -1,0 +1,75 @@
+.documents {
+  position: relative;
+  overflow-x: clip;
+  background: #131313;
+
+  .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__glass {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.92;
+    z-index: 5;
+
+    @include tablet {
+      opacity: 0.5;
+    }
+
+    &--1 {
+      top: 0;
+      right: 0;
+      width: clamp(200px, 10vw, 320px);
+    }
+
+    &--2 {
+      top: 0;
+      right: 0;
+      top: clamp(60px, 5vw, 100px);
+      right: clamp(180px, 8vw, 320px);
+      width: clamp(100px, 8vw, 110px);
+    }
+
+    &--3 {
+      top: clamp(220px, 18vw, 320px);
+      right: clamp(260px, 4vw, 380px);
+      width: clamp(100px, 8vw, 150px);
+    }
+  }
+
+  &__list {
+    margin-top: clamp(32px, 5vw, 48px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.5vw, 28px);
+  }
+}
+
+.doc-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  color: $color-white;
+  transition: color 0.2s $ease-out;
+
+  &__title {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    transition: transform 0.2s $ease-out;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $color-text-muted;
+
+    .doc-card__icon {
+      transform: translateX(4px);
+    }
+  }
+}
