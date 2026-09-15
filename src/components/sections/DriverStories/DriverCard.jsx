@@ -1,18 +1,14 @@
-export default function DriverCard({ driver, tint = 0 }) {
+export default function DriverCard({ driver }) {
   return (
     <div className="driver-card" tabIndex={0}>
       <div className="driver-card__inner">
         <div className="driver-card__front">
-          <img
-            src={driver.img}
-            alt={driver.name}
-            loading="lazy"
-            style={{ filter: `grayscale(1) hue-rotate(${tint}deg)` }}
-          />
-          <div className="driver-card__front-scrim" />
-          <div className="driver-card__front-footer">
-            <p className="driver-card__name">{driver.name}</p>
-            <p className="driver-card__excerpt">{driver.bio}</p>
+          <img src={driver.img} alt={driver.name} loading="lazy" />
+          <div className="driver-card__front-content">
+            <div className="driver-card__front-content--inner">
+              <p className="driver-card__name">{driver.name}</p>
+              <p className="driver-card__excerpt">{driver.excerpt}</p>
+            </div>
           </div>
         </div>
 

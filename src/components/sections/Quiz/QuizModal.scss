@@ -27,12 +27,22 @@
 
   &__close {
     @include reset-button;
+    @include focus-ring;
     position: absolute;
     top: 16px;
     right: 20px;
-    font-size: 1.8rem;
-    line-height: 1;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     color: $color-white;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &__result {
@@ -116,6 +126,37 @@
     line-height: 1.7;
     margin-bottom: 24px;
     font-size: 1rem;
+  }
+
+  &__download {
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 24px;
+  }
+
+  &__download-btn {
+    @include reset-button;
+    @include focus-ring;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid $color-white;
+    padding: 12px 28px;
+    font-weight: 700;
+    transition:
+      background 0.25s $ease-out,
+      color 0.25s $ease-out;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: $color-white;
+      color: $color-ink;
+    }
   }
 
   &__share {

@@ -1,9 +1,12 @@
-import logoCap from "@/assets/images/cap-logo.svg";
+import { useState } from "react";
 import logoWeb from "@/assets/images/web-logo.png";
+import PrivacyPolicyModal from "@/components/common/PrivacyPolicyModal";
 import { footerColumns, footerContact } from "@/data/footer.js";
 import "./Footer.scss";
 
 export default function Footer() {
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
@@ -41,9 +44,18 @@ export default function Footer() {
               <ul>
                 {column.links.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} target="_blank">
-                      {link.label}
-                    </a>
+                    {link.modal === "privacy" ? (
+                      <button
+                        type="button"
+                        onClick={() => setIsPrivacyOpen(true)}
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <a href={link.href} target="_blank">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -51,15 +63,13 @@ export default function Footer() {
           ))}
         </div>
 
-        <img
-          className="footer__logo"
-          src={logoCap}
-          alt="čap"
-          width={105}
-          height={56}
-          loading="lazy"
-        />
+        <div />
       </div>
+
+      <PrivacyPolicyModal
+        isOpen={isPrivacyOpen}
+        onClose={() => setIsPrivacyOpen(false)}
+      />
     </footer>
   );
 }

@@ -1,9 +1,27 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
-import { FacebookIcon, InstagramIcon, WhatsAppIcon, XIcon } from "./Icons";
+import resultFilter1 from "@/assets/images/quiz/result-filter-1.png";
+import resultFilter2 from "@/assets/images/quiz/result-filter-2.png";
+import resultFilter3 from "@/assets/images/quiz/result-filter-3.png";
+import resultFilter4 from "@/assets/images/quiz/result-filter-4.png";
+import {
+  CloseIcon,
+  DownloadIcon,
+  FacebookIcon,
+  InstagramIcon,
+  WhatsAppIcon,
+  XIcon,
+} from "./Icons";
 import "./QuizModal.scss";
 
 const POPUP_FEATURES = "noopener,noreferrer,width=640,height=700";
+
+const RESULT_FILTER_IMAGES = {
+  1: resultFilter1,
+  2: resultFilter2,
+  3: resultFilter3,
+  4: resultFilter4,
+};
 
 const SHARE_NETWORKS = {
   facebook: { label: "Sdílet na Facebooku", Icon: FacebookIcon },
@@ -89,6 +107,8 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
 
   if (!isOpen || !result) return null;
 
+  const templateSrc = RESULT_FILTER_IMAGES[result.number];
+
   return (
     <AnimatePresence>
       <motion.div
@@ -116,7 +136,7 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
             onClick={onClose}
             aria-label="Zavřít test"
           >
-            &times;
+            <CloseIcon />
           </button>
 
           <motion.div
@@ -136,7 +156,17 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
 
               <p className="quiz-modal__description">{result.description}</p>
 
-              <div className="quiz-modal__share">
+              <a
+                className="quiz-modal__download"
+                href={templateSrc}
+                download={`result-filter-${result.number}.png`}
+              >
+                <button type="button" className="quiz-modal__download-btn">
+                  <DownloadIcon />
+                  Stáhnout šablonu
+                </button>
+              </a>
+              {/* <div className="quiz-modal__share">
                 {Object.entries(SHARE_NETWORKS).map(
                   ([platform, { label, Icon }]) => (
                     <button
@@ -153,7 +183,7 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
                     </button>
                   ),
                 )}
-              </div>
+              </div> */}
             </div>
 
             {/* <button

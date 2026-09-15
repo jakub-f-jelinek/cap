@@ -2,6 +2,7 @@
   overflow: hidden;
 
   &.crash-slider {
+    padding-bottom: 0;
     padding-top: 70px;
   }
 
@@ -49,30 +50,21 @@
 
   &__card {
     position: relative;
-    aspect-ratio: 4 / 4.4;
-    background: radial-gradient(120% 120% at 30% 20%, #1b1b1f 0%, #050505 75%);
     overflow: hidden;
-    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
     display: flex;
     align-items: center;
     justify-content: center;
 
     img {
-      width: 68%;
-      height: 68%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      opacity: 0.9;
-      filter: grayscale(1);
+      opacity: 1;
     }
   }
 
-  &__slide.swiper-slide-prev &__card,
-  &__slide.swiper-slide-next &__card {
-    filter: brightness(0.48);
-  }
-
   &__slide.swiper-slide-active &__card {
-    filter: saturate(1.05);
+    box-shadow: 0 24px 148px rgba(0, 0, 0, 0.9);
   }
 
   &__card-scrim {
@@ -83,23 +75,6 @@
       transparent 50%,
       rgba(2, 2, 2, 0.9) 100%
     );
-  }
-
-  &__card-title {
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    background: $color-accent-box;
-    color: $color-ink;
-    text-align: center;
-    font-weight: 800;
-    font-size: 1.25rem;
-    line-height: 1.28;
-    min-height: 8rem;
-    border: 6px solid $color-ink;
-    padding: 14px 18px;
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
   }
 
   &__pagination {
@@ -135,5 +110,48 @@
     font-size: 0.98rem;
     line-height: 1.7;
     max-width: 420px;
+  }
+
+  &__about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 140px;
+    padding-bottom: 140px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+
+    overflow: visible;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 100%;
+      height: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.05) 10%,
+        rgba(170, 170, 170, 0.1) 20%,
+        rgba(255, 255, 255, 0) 70%
+      );
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-block: 20px;
+    }
+
+    p {
+      max-width: 700px;
+    }
   }
 }

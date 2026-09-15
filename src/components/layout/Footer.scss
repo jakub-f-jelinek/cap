@@ -84,7 +84,9 @@
     flex-direction: column;
   }
 
-  &__column a {
+  &__column a,
+  &__column button {
+    @include reset-button;
     color: $color-text-muted;
     font-size: 0.75rem;
     transition: color 0.2s $ease-out;

@@ -14,13 +14,8 @@ const BOX_OPACITY_END = 1;
 // prvních pár % stopáže, ať scroll hned něco ukazuje místo černé.
 const VIDEO_MIN_PROGRESS = 0.05;
 
-// Opacity a blur mají doběhnout na finální hodnotu dřív než scale (ten běží
-// až do konce scrollu), ale postupně - ne skoro okamžitě.
-// const SHATTER_PROGRESS = 0.45;
-const SHATTER_PROGRESS = 0.8;
-
-// Stejný smoothing jako v useScrollScrub, ať boxová animace drží stejný
-// "feel" jako video scrubbing.
+const SHATTER_PROGRESS = 0.615;
+const SHATTER_PROGRESS_SCALE = 0.615;
 const LERP_FACTOR = 0.2;
 const EPSILON = 0.0005;
 
@@ -30,10 +25,13 @@ export default function Statement() {
   const applyBoxProgress = (progress) => {
     if (!boxRef.current) return;
 
-    const scale =
-      BOX_SCALE_START + (BOX_SCALE_END - BOX_SCALE_START) * progress;
-
     const shatterProgress = Math.min(progress / SHATTER_PROGRESS, 1);
+    const shatterProgressScale = Math.min(progress / SHATTER_PROGRESS_SCALE, 1);
+
+    const scale =
+      BOX_SCALE_START +
+      (BOX_SCALE_END - BOX_SCALE_START) * shatterProgressScale;
+
     const blur =
       BOX_BLUR_START + (BOX_BLUR_END - BOX_BLUR_START) * shatterProgress;
     const opacity =
@@ -127,9 +125,12 @@ export default function Statement() {
               <br />i když si to nepřipouštíme
             </h2>
             <p>
-              Při řízení děláme často drobné prohřešky. Občas jedeme o něco
-              rychleji. Podíváme se na telefon. Nedodržujeme bezpečný odstup.
-              Projedeme na oranžovou… Připadá nám to normální.
+              Při řízení své drobné prohřešky často omlouváme slovem "jen". Jen
+              trochu zrychlím. Jen se rychle podívám na mobil. Jen si nechám
+              menší odstup. Jen ještě kousek pojedu, i když jsem unavený.
+              Připadá nám to normální. Protože to děláme běžně. Protože to
+              dělají i ostatní. Protože jsme to už tolikrát udělali a zatím se
+              nic nestalo.
             </p>
           </div>
         </div>

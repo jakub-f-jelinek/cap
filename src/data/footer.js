@@ -25,7 +25,11 @@ export const footerColumns = [
   {
     title: "Legal",
     links: [
-      { label: "Ochrana osobních údajů", href: "#" },
+      {
+        label: "Zásady ochrany osobních údajů",
+        href: "#",
+        modal: "privacy",
+      },
       { label: "Změna nastavení cookies", href: "#" },
     ],
   },

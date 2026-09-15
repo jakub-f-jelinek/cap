@@ -128,6 +128,7 @@ export const quizQuestions = [
 
 export const quizResults = [
   {
+    number: 1,
     minScore: 0,
     maxScore: 5,
     label: "VZORŇÁK",
@@ -136,6 +137,7 @@ export const quizResults = [
       "Nepoužíváte telefon za jízdy, nehoníte každou oranžovou a bezpečný odstup pro vás není sprosté slovo. Gratulujeme, jste noční můrou všech netrpělivých řidičů. Vaše odpovědi ukazují, že za volantem nepokoušíte osud zbytečně. Nehody se samozřejmě nevyhýbají ani opatrným řidičům, ale máte velkou šanci že dojedete bezpečně. Jen tak dál. Silnice potřebují víc lidí jako jste vy.",
   },
   {
+    number: 2,
     minScore: 6,
     maxScore: 26,
     label: "NORMÁLNÍ ŘIDIČ",
@@ -144,6 +146,7 @@ export const quizResults = [
       'Takových jako vy je nejvíc. A právě proto vznikla tato kampaň. Občas rychleji. Občas telefon. Občas oranžová. Nic, za co by vás kamarádi označili za piráta silnic. Jenže právě tohle "vždyť to dělají všichni, je to normální" stojí za velkou částí vážných nehod. Normální totiž neznamená bezpečné. A někdy stačí jediná vteřina a z běžného návyku se stane životní průšvih s tragickými důsledky.',
   },
   {
+    number: 3,
     minScore: 27,
     maxScore: 40,
     label: "KASKADÉR",
@@ -152,6 +155,7 @@ export const quizResults = [
       "Kdyby byly silnice filmové kulisy, nejspíš byste měli vlastní trailer. Rychlá rozhodnutí, trochu risku a víra, že všechno dopadne dobře. Jenže většina lidí, kteří způsobili tragickou nehodu, si pár vteřin před tím myslela úplně to samé. Máte štěstí, že jste ještě tady. Nezkoušejte, jak dlouho vám vydrží.",
   },
   {
+    number: 4,
     minScore: 41,
     maxScore: 45,
     label: "PIRÁT SILNIC",

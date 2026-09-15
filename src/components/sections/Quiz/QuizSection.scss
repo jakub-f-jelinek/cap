@@ -5,6 +5,27 @@
   display: flex;
   align-items: center;
 
+  &__test-buttons {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-block: 20px;
+
+    button {
+      @include reset-button;
+      border: 1px dashed $color-white;
+      padding: 8px 16px;
+      color: $color-white;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    }
+  }
+
   &.section {
     padding: 0;
   }

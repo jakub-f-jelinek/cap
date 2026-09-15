@@ -1,50 +1,38 @@
+import sliderImg_1 from "@/assets/images/slider/CAP_NORMALNI_KV_A_1.jpg";
+import sliderImg_2 from "@/assets/images/slider/CAP_NORMALNI_KV_A_2.jpg";
+import sliderImg_3 from "@/assets/images/slider/CAP_NORMALNI_KV_A_3.jpg";
+import sliderImg_4 from "@/assets/images/slider/CAP_NORMALNI_KV_A_4.jpg";
+import sliderImg_5 from "@/assets/images/slider/CAP_NORMALNI_KV_A_5.jpg";
+
 export const crashSlides = [
   {
-    title: 'Normální předjíždění, kde nemáš výhled, zabíjí',
-    detail: 'Kvůli riskantnímu předjíždění bez výhledu bylo zraněno 84 lidí. 21 lidí zemřelo.',
+    img: sliderImg_1,
+    title: "Normální nedodržení vzdálenosti zabíjí",
+    detail:
+      "Kvůli nedodržení bezpečné vzdálenosti bylo těžce zraněno 37 lidí. 5 lidí zemřelo.",
   },
   {
-    title: 'Normální nedodržení rychlosti zabíjí',
-    detail: 'Kvůli překročení rychlosti bylo zraněno 129 lidí. 32 lidí zemřelo.',
+    img: sliderImg_2,
+    title: "Normální textování při řízeni zabíjí",
+    detail:
+      "Psaní zpráv znamená nevěnovat se plně řízení. Kvůli nevěnování se řízení bylo těžce zraněno 171 lidí. 62 lidí zemřelo.",
   },
   {
-    title: 'Normální otáčení na plné čáře zabíjí',
-    detail: 'Kvůli otáčení v nepřehledné zatáčce bylo zraněno 47 lidí. 12 lidí zemřelo.',
+    img: sliderImg_3,
+    title: "Normální nedodržení rychlosti zabíjí",
+    detail:
+      "Kvůli překročení rychlosti bylo těžce zraněno 355 lidí. 124 lidí zemřelo.",
   },
   {
-    title: 'Normální nedodržení odstupu zabíjí',
-    detail: 'Kvůli nedodržení bezpečné vzdálenosti bylo zraněno 96 lidí. 18 lidí zemřelo.',
+    img: sliderImg_4,
+    title: "Normální únava za volantem zabíjí",
+    detail:
+      "Únava může vést k nezvládnutí řízení. Kvůli nezvládnutí řízení vozidla bylo těžce zraněno 57 lidí. 24 lidí zemřelo.",
   },
   {
-    title: 'Normální telefonování za jízdy zabíjí',
-    detail: 'Kvůli telefonu za volantem bylo zraněno 61 lidí. 15 lidí zemřelo.',
+    img: sliderImg_5,
+    title: "Normální předjíždění na plné čáře zabíjí",
+    detail:
+      "Kvůli předjíždění přes plnou čáru byl těžce zraněn 1 člověk. 1 člověk zemřel.",
   },
-  {
-    title: 'Normální projetí na oranžovou zabíjí',
-    detail: 'Kvůli projetí křižovatky na oranžovou bylo zraněno 39 lidí. 9 lidí zemřelo.',
-  },
-  {
-    title: 'Normální jízda po nedostatku spánku zabíjí',
-    detail: 'Kvůli mikrospánku za volantem bylo zraněno 58 lidí. 22 lidí zemřelo.',
-  },
-  {
-    title: 'Normální nedání přednosti zabíjí',
-    detail: 'Kvůli nedání přednosti v jízdě bylo zraněno 73 lidí. 14 lidí zemřelo.',
-  },
-  {
-    title: 'Normální couvání bez ohledu zabíjí',
-    detail: 'Kvůli neopatrnému couvání bylo zraněno 22 lidí. 4 lidé zemřeli.',
-  },
-  {
-    title: 'Normální jízda za mlhy bez světel zabíjí',
-    detail: 'Kvůli snížené viditelnosti bylo zraněno 33 lidí. 11 lidí zemřelo.',
-  },
-  {
-    title: 'Normální nezapnutý pás zabíjí',
-    detail: 'Kvůli absenci bezpečnostních pásů bylo zraněno 45 lidí. 27 lidí zemřelo.',
-  },
-  {
-    title: 'Normální předjíždění cyklisty nakrátko zabíjí',
-    detail: 'Kvůli nedostatečnému odstupu od cyklistů bylo zraněno 29 lidí. 8 lidí zemřelo.',
-  },
-]
+];

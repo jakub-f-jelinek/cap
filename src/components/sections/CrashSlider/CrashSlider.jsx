@@ -1,4 +1,3 @@
-import glassTexture from "@/assets/glass/glass-24.png";
 import { crashSlides } from "@/data/crashSlides.js";
 import { useState } from "react";
 import "swiper/css";
@@ -55,14 +54,12 @@ export default function CrashSlider() {
               <SwiperSlide key={slide.title} className="crash-slider__slide">
                 <div className="crash-slider__card">
                   <img
-                    src={glassTexture}
+                    src={slide.img}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
                   />
-                  <div className="crash-slider__card-scrim" />
                 </div>
-                <p className="crash-slider__card-title">{slide.title}</p>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -75,6 +72,18 @@ export default function CrashSlider() {
           <span className="section-rule" />
           <p className="crash-slider__detail">{active.detail}</p>
         </div>
+      </div>
+
+      <div className="container crash-slider__about">
+        <h3>O kampani</h3>
+        <p>
+          Kampaň Normální řízení zabíjí proto upozorňuje na to, jak je naše
+          "normální" řízení ve skutečnosti nebezpečné a jak fatální následky
+          může mít. Chceme, aby si lidé uvědomili, že rizikem na silnicích
+          nejsou vždy "ti druzí", ale velmi často my sami. Poznáváte se v těchto
+          „normálních" situacích? Právě u vlastních každodenních návyků začíná
+          změna k bezpečné jízdě.
+        </p>
       </div>
     </section>
   );

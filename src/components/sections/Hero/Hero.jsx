@@ -125,14 +125,17 @@ export default function Hero() {
             />
           </div>
           <div ref={statRef} className="hero__stat">
-            <p className="hero__stat-number">420 ŽIVOTŮ</p>
+            <p className="hero__stat-number">346 ŽIVOTŮ</p>
 
             <span className="section-rule" />
 
             <p className="hero__stat-copy">
-              Chování, které při řízení považujeme za normální, si od 1. ledna
-              2026 vyžádalo <br />
-              420 životů.
+              Tolik lidí v roce 2025 zabilo chování za volantem, které jsme si
+              zvykli považovat za „normální“.
+            </p>
+            <p className="hero__stat-copy--source">
+              Zdroj: Policie ČR, statistika smrtelných nehod zaviněných řidičem,
+              po odečtení agresivní jízdy, 2025
             </p>
           </div>
         </div>

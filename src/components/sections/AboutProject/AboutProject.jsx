@@ -10,17 +10,24 @@ export default function AboutProject() {
           <span className="section-rule" />
           <div className="about-project__intro-text">
             <p>
-              Česká asociace pojišťoven dlouhodobě stojí za projekty zaměřenými
-              na prevenci dopravních nehod a bezpečnější provoz na českých
-              silnicích. Protože za každou statistikou je konkrétní člověk, jeho
-              blízcí a příběh.
+              Česká asociace pojišťoven prostřednictvím preventivních kampaní
+              dlouhodobě otevírá témata bezpečnosti silničního provozu a
+              upozorňuje na rizikové chování za volantem i jeho následky. Na
+              tyto aktivity navazuje kampaň Normální řízení zabíjí. Kampaň
+              upozorňuje na přestupky, které si za volantem omlouváme a
+              považujeme za běžné. Chce vést řidiče k přehodnocení vlastních
+              návyků: ani chování, na které jsme zvyklí, nemusí být bezpečné.
             </p>
             <p>
-              Kampaň Normální řízení zabíjí upozorňuje na chyby a přestupky,
-              které jsme si za volantem zvykli omlouvat jako „normální“. U
-              ostatních takové chování snadno vnímáme jako nebezpečné, u sebe
-              pro něj ale často najdeme omluvu. Jejich následky přitom mohou být
-              velmi vážné a často i bohužel tragické.
+              Součástí projektu je celovečerní dokument Jediná vteřina režiséra
+              Víta Klusáka. Prostřednictvím skutečných příběhů ukazuje, jak
+              mohou rozhodnutí za volantem nevratně zasáhnout do života řidičů,
+              obětí i jejich blízkých. Dává tak tématu konkrétní lidský rozměr a
+              prostor k zamyšlení nad vlastní odpovědností.
+            </p>
+            <p>
+              Na projektu ČAP spolupracuje s Policií ČR. Projekt je podpořen z
+              prostředků Fondu zábrany škod České kanceláře pojistitelů.
             </p>
           </div>
         </div>
