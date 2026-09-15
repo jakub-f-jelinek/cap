@@ -118,7 +118,7 @@ export default function QuizSection() {
 
       <div className="container quiz-section__inner">
         <h2>
-          Otestujte se
+          Otestujte se.
           <br />
           Jaký jste typ řidiče?
         </h2>

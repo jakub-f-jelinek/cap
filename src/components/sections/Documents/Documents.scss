@@ -22,6 +22,11 @@
       top: 0;
       right: 0;
       width: clamp(200px, 10vw, 320px);
+
+      @include mobile {
+        width: 130px;
+        right: -30px;
+      }
     }
 
     &--2 {
@@ -30,12 +35,24 @@
       top: clamp(60px, 5vw, 100px);
       right: clamp(180px, 8vw, 320px);
       width: clamp(100px, 8vw, 110px);
+
+      @include mobile {
+        top: 30px;
+        right: 90px;
+        width: 70px;
+      }
     }
 
     &--3 {
       top: clamp(220px, 18vw, 320px);
       right: clamp(260px, 4vw, 380px);
       width: clamp(100px, 8vw, 150px);
+
+      @include mobile {
+        top: 150px;
+        right: 130px;
+        width: 80px;
+      }
     }
   }
 
@@ -48,10 +65,7 @@
 }
 
 .doc-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  width: fit-content;
+  display: inline;
   color: $color-white;
   transition: color 0.2s $ease-out;
 
@@ -59,8 +73,13 @@
     font-size: clamp(1rem, 1.4vw, 1.15rem);
   }
 
+  // Inline (ne flex), ať šipka drží hned za posledním znakem textu a při
+  // zalomení na mobilu se přirozeně přesune spolu s posledním slovem místo
+  // toho, aby zůstala vycentrovaná vedle celého (víceřádkového) titulku.
   &__icon {
-    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 14px;
     transition: transform 0.2s $ease-out;
   }
 

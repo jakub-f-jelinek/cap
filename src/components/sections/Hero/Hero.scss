@@ -1,6 +1,9 @@
 .hero {
   position: relative;
-  height: 260vh;
+  // 360vh místo 260vh: animace (viz VIDEO_MAX_PROGRESS v .jsx) doběhne ve
+  // stejném bodě jako dřív, extra výška jen prodlužuje "podržení" hotového
+  // stavu před odepnutím sekce.
+  height: 360vh;
 
   &__stage {
     position: sticky;

@@ -55,6 +55,7 @@
     gap: clamp(28px, 4vw, 48px);
 
     @include tablet {
+      margin-top: 132px;
       grid-template-columns: 1fr;
     }
   }

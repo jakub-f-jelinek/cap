@@ -1,10 +1,16 @@
 .header {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 100;
+  z-index: 10000;
   pointer-events: none;
   display: flex;
   align-items: center;
+  background: transparent;
+  transition: background-color 0.3s $ease-out;
+
+  &--scrolled {
+    background: $color-bg;
+  }
 
   &__container {
     position: relative;
@@ -17,7 +23,9 @@
   }
 
   &__logo img {
-    max-width: 120px;
+    max-width: 204px;
+    height: auto;
+    width: auto;
   }
 
   &__burger {

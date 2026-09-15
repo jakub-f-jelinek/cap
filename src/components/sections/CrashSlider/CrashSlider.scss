@@ -81,10 +81,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 16px;
     margin-top: 24px;
 
+    @include mobile {
+      gap: 20px;
+    }
+
     .swiper-pagination-bullet {
+      position: relative;
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -93,6 +98,13 @@
       transition: background 0.25s $ease-out;
       cursor: pointer;
       margin: 0 !important;
+
+      // Zvětšuje jen klikatelnou/tap plochu, ne vizuální velikost tečky.
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -12px;
+      }
     }
 
     .swiper-pagination-bullet-active {
@@ -104,12 +116,24 @@
     .section-rule {
       margin-block: 18px 20px;
     }
+
+    @include mobile {
+      text-align: center;
+
+      .section-rule {
+        margin-inline: auto;
+      }
+    }
   }
 
   &__detail {
     font-size: 0.98rem;
     line-height: 1.7;
     max-width: 420px;
+
+    @include mobile {
+      margin-inline: auto;
+    }
   }
 
   &__about {
@@ -119,7 +143,7 @@
     justify-content: center;
     align-items: center;
 
-    padding-top: 140px;
+    padding-top: 110px;
     padding-bottom: 140px;
     width: 100%;
     height: 100%;

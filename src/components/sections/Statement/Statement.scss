@@ -1,6 +1,6 @@
 .statement {
   position: relative;
-  height: 360vh;
+  height: 280vh;
 
   &__stage {
     position: sticky;
@@ -18,6 +18,14 @@
     height: 100%;
     object-fit: cover;
     will-change: transform;
+
+    @include mobile {
+      left: -60px;
+      // Reset (_reset.scss) dává video/img max-width: 100%, což by tu
+      // ořízlo šířku zpátky na 100 % a vzniklo by prázdné místo vpravo.
+      max-width: none;
+      width: calc(100% + 60px);
+    }
   }
 
   &__scrim {

@@ -10,8 +10,18 @@ const STAT_START = 0.35;
 const STAT_END = 0.65;
 
 // Video má na startu skoro černý obraz - přeskočíme prvních 10 % stopáže,
-// ať scroll hned něco ukazuje místo černé.
+// ať scroll hned něco ukazuje místo černé. Na mobilu naskakuje o kousek
+// později, tam je úvod videa hůř čitelný na malém displeji.
 const VIDEO_MIN_PROGRESS = 0.12;
+const VIDEO_MIN_PROGRESS_MOBILE = 0.35;
+const BP_MOBILE = 480;
+
+// Progress je lineární funkce scrollu vůči celé výšce .hero (viz Hero.scss,
+// aktuálně 360vh). VIDEO_MAX_PROGRESS říká, že video i textbox/stat
+// animace doběhnou do konce už po 160vh scrollu (stejné tempo jako dřív,
+// 260vh - 100vh) - zbylá výška je jen statické "podržení" hotového stavu
+// před přechodem na další sekci.
+const VIDEO_MAX_PROGRESS = 0.615;
 
 export default function Hero() {
   const contentRef = useRef(null);
@@ -73,8 +83,8 @@ export default function Hero() {
       const translateY = centeredOffsetY * (1 - shrink);
 
       textboxRef.current.style.transform = `
-        translate(${translateX}px, ${translateY}px)
-        scale(${1 - shrink * 0.42})
+        translate(${translateX - 3}px, ${translateY}px)
+        scale(${1 - shrink * 0.2})
       `;
     }
 
@@ -91,9 +101,14 @@ export default function Hero() {
     }
   };
 
+  const videoMinProgress =
+    typeof window !== "undefined" && window.innerWidth <= BP_MOBILE
+      ? VIDEO_MIN_PROGRESS_MOBILE
+      : VIDEO_MIN_PROGRESS;
+
   const { videoRef, wrapperRef, progressRef, seekToProgress } = useVideoScrub(
     applyExtraProgress,
-    { minProgress: VIDEO_MIN_PROGRESS },
+    { minProgress: videoMinProgress, maxProgress: VIDEO_MAX_PROGRESS },
   );
 
   return (

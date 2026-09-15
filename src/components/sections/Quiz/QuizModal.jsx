@@ -163,7 +163,7 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
               >
                 <button type="button" className="quiz-modal__download-btn">
                   <DownloadIcon />
-                  Stáhnout šablonu
+                  Stáhnout výsledek pro sociální sítě
                 </button>
               </a>
               {/* <div className="quiz-modal__share">

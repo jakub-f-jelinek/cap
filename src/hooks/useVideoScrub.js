@@ -9,15 +9,26 @@ const IOS_FRAME_EPSILON = 0.001;
  * Binds a <video> to scroll progress (0 -> 1) the same way as the Hero
  * section: primes the video on iOS (play + pause on the first frame so it
  * actually renders), then seeks currentTime to match scroll position on
- * every scroll tick. `onProgress`, if given, is called with the same raw
- * progress value for callers that need to drive extra effects off it.
+ * every scroll tick. `onProgress`, if given, is called with the same
+ * effective progress value for callers that need to drive extra effects
+ * off it.
  *
  * `minProgress` skips a leading slice of the video (e.g. a black opening
  * frame) by remapping scroll progress 0->1 onto video-time minProgress->1,
  * so motion still starts immediately at the first bit of scroll instead of
  * sitting dead until progress passes minProgress.
+ *
+ * `maxProgress` lets the scrollable wrapper be taller than the scrubbed
+ * animation itself: raw scroll progress 0->maxProgress is remapped onto
+ * effective progress 0->1 (and clamped there after), so the animation
+ * finishes at the same physical scroll distance regardless of how much
+ * extra wrapper height is added - the extra height just becomes a static
+ * "hold" on the last frame instead of slowing the whole animation down.
  */
-export function useVideoScrub(onProgress, { minProgress = 0 } = {}) {
+export function useVideoScrub(
+  onProgress,
+  { minProgress = 0, maxProgress = 1 } = {},
+) {
   const videoRef = useRef(null);
   const progressRef = useRef(0);
 
@@ -120,7 +131,11 @@ export function useVideoScrub(onProgress, { minProgress = 0 } = {}) {
     };
   }, []);
 
-  const applyProgress = (progress) => {
+  const applyProgress = (rawProgress) => {
+    const progress =
+      maxProgress >= 1
+        ? rawProgress
+        : Math.min(rawProgress / maxProgress, 1);
     progressRef.current = progress;
     seekToProgress(videoRef.current, progress);
     onProgress?.(progress);

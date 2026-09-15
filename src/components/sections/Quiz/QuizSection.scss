@@ -45,11 +45,19 @@
 
     &--left {
       left: clamp(-60px, -2vw, 20px);
+
+      @include mobile {
+        top: 70%;
+      }
     }
 
     &--right {
       right: clamp(-60px, -2vw, 20px);
       transform: translateY(-50%) scaleX(-1);
+
+      @include mobile {
+        top: 30%;
+      }
     }
   }
 
@@ -232,7 +240,7 @@
 
 .arrow {
   border: solid currentColor;
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
   background: transparent;
   cursor: pointer;
 }

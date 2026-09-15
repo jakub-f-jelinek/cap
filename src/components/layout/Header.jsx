@@ -6,6 +6,7 @@ import "./Header.scss";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -13,6 +14,25 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Header je průhledný přes hero i statement sekci (obě mají tmavé video
+  // na pozadí) - až jakmile statement sekce celá odscrolluje, podbarví se,
+  // ať je čitelný nad zbytkem stránky.
+  useEffect(() => {
+    const transparentUntilEl = document.getElementById("statement");
+
+    const onScroll = () => {
+      if (!transparentUntilEl) {
+        setScrolled(window.scrollY > 0);
+        return;
+      }
+      setScrolled(transparentUntilEl.getBoundingClientRect().bottom <= 0);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -24,10 +44,10 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="header">
+    <header className={`header${scrolled ? " header--scrolled" : ""}`}>
       <div className="header__container">
         <div className="header__logo">
-          <img src={logoCap} alt="čap" width={105} height={56} loading="lazy" />
+          <img src={logoCap} alt="čap" loading="lazy" />
         </div>
         <button
           type="button"

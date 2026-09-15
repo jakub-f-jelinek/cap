@@ -12,9 +12,9 @@ export const LEFT_GLASS_MOTION_1 = {
     rotate: [-8, 15],
   },
   mobile: {
-    x: [0, 0],
-    y: [-26, 34],
-    scale: [0.8, 1.2],
+    x: [-20, -20],
+    y: [0, 150],
+    scale: [0.6, 1],
     rotate: [-8, 15],
   },
 };
@@ -33,8 +33,8 @@ export const LEFT_GLASS_MOTION_2 = {
     rotate: [0, 50],
   },
   mobile: {
-    x: [0, 10],
-    y: [-100, -150],
+    x: [-30, -60],
+    y: [-80, -90],
     scale: [0.3, 0.4],
     rotate: [0, 50],
   },
@@ -54,8 +54,8 @@ export const LEFT_GLASS_MOTION_3 = {
     rotate: [0, 90],
   },
   mobile: {
-    x: [60, 90],
-    y: [-50, -80],
+    x: [70, 90],
+    y: [80, 150],
     scale: [0.2, 0.3],
     rotate: [0, 90],
   },
@@ -70,14 +70,14 @@ export const RIGHT_GLASS_MOTION_1 = {
   },
 
   tablet: {
-    x: [24, -20],
-    y: [170, 220],
-    scale: [1.3, 1.8],
+    x: [24, 30],
+    y: [-70, -240],
+    scale: [0.8, 1.3],
     rotate: [0, -40],
   },
   mobile: {
     x: [20, 80],
-    y: [170, 220],
+    y: [0, -120],
     scale: [0.8, 1.3],
     rotate: [0, -40],
   },
@@ -91,14 +91,14 @@ export const RIGHT_GLASS_MOTION_2 = {
     rotate: [0, 90],
   },
   tablet: {
-    x: [0, 0],
+    x: [0, -120],
     y: [-60, -100],
     scale: [0.2, 0.4],
     rotate: [0, 90],
   },
   mobile: {
-    x: [0, 0],
-    y: [-60, -100],
+    x: [-20, -40],
+    y: [-100, -190],
     scale: [0.2, 0.4],
     rotate: [0, 90],
   },
@@ -118,8 +118,8 @@ export const RIGHT_GLASS_MOTION_3 = {
     rotate: [0, 90],
   },
   mobile: {
-    x: [0, 40],
-    y: [-120, -170],
+    x: [-10, 40],
+    y: [-140, -200],
     scale: [0.1, 0.2],
     rotate: [0, 90],
   },

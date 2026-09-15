@@ -12,14 +12,13 @@ export const GLASS_MOTION = {
     rotate: [0, 0],
   },
   mobile: {
-    x: [80, 40],
-    y: [-24, 42],
-    scale: [0.4, 0.8],
+    x: [0, 0],
+    y: [-40, -120],
+    scale: [0.6, 0.8],
     rotate: [10, -10],
   },
 };
 
-// Medium shard clustered just below-left of the big piece.
 export const GLASS_MOTION_2 = {
   desktop: {
     x: [20, -10],
@@ -34,14 +33,13 @@ export const GLASS_MOTION_2 = {
     rotate: [-6, 36],
   },
   mobile: {
-    x: [170, 90],
-    y: [50, 0],
+    x: [20, 10],
+    y: [0, -40],
     scale: [0.3, 0.6],
     rotate: [-6, 36],
   },
 };
 
-// Small blob shard, lowest and furthest left of the cluster.
 export const GLASS_MOTION_3 = {
   desktop: {
     x: [0, -40],
@@ -56,9 +54,9 @@ export const GLASS_MOTION_3 = {
     rotate: [-4, 32],
   },
   mobile: {
-    x: [170, 120],
-    y: [0, 120],
+    x: [60, 70],
+    y: [-80, -50],
     scale: [0.3, 0.6],
-    rotate: [-20, 80],
+    rotate: [0, 80],
   },
 };

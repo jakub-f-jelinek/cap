@@ -25,7 +25,7 @@ export const drivers = [
   {
     name: "Jiří",
     excerpt: "Jiří jel známou cestou, kterou projížděl opakovaně...",
-    bio: "Jiří jel známou cestou, kterou projížděl opakovaně. Místo silnice se na chvíli podíval na telefon a jel přitom rychleji, než situace dovolovala. Na přechodu srazil dva chodce.Oba zemřeli.",
+    bio: "Jiří jel známou cestou, kterou projížděl opakovaně. Místo silnice se na chvíli podíval na telefon a jel přitom rychleji, než situace dovolovala. Na přechodu srazil dva chodce. Oba zemřeli.",
     img: portrait_4,
   },
 ];

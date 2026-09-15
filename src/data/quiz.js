@@ -48,7 +48,7 @@ export const quizQuestions = [
     question: "Dodržujete bezpečnou vzdálenost?",
     options: [
       { label: "Ano, držím si správný odstup.", score: 0 },
-      { label: "Jen, když mě někdo brzdí.", score: 1 },
+      { label: "Když řidič přede mnou působí nebezpečně tak.", score: 1 },
       { label: "Přiznávám, že se „lepím“.", score: 3 },
     ],
   },
@@ -69,11 +69,11 @@ export const quizQuestions = [
     ],
   },
   {
-    question: "Na železničním přejezdu bliká červená?",
+    question: "Na železničním přejezdu bliká červená. Projedete?",
     options: [
       { label: "Nikdy.", score: 0 },
       { label: "Občas to risknu.", score: 1 },
-      { label: "To ještě projedu.", score: 3 },
+      { label: "To ještě stihnu.", score: 3 },
     ],
   },
   {
@@ -85,7 +85,7 @@ export const quizQuestions = [
     ],
   },
   {
-    question: "Jedno pivo na zahrádce?",
+    question: "Sednete za volant po jednom pivu na zahrádce?",
     options: [
       { label: "Když piju, neřídím.", score: 0 },
       { label: "Záleží jak se cítím.", score: 1 },
@@ -109,7 +109,7 @@ export const quizQuestions = [
     ],
   },
   {
-    question: "Chcete odbočit, ale jste ve špatném pruhu?",
+    question: "Chcete odbočit, ale jste ve špatném pruhu.",
     options: [
       { label: "Jedu dál, neodbočím.", score: 0 },
       { label: "Zkusím se zařadit.", score: 1 },
@@ -117,7 +117,7 @@ export const quizQuestions = [
     ],
   },
   {
-    question: "Potřebujete se zařadit?",
+    question: "Potřebujete se zařadit.",
     options: [
       { label: "Počkám na místo.", score: 0 },
       { label: "Dám blinkr a zkusím to.", score: 1 },
