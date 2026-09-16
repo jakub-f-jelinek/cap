@@ -1,3 +1,4 @@
+import Countdown from "@/components/common/Countdown.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import Header from "@/components/layout/Header.jsx";
 import AboutProject from "@/components/sections/AboutProject/AboutProject.jsx";
@@ -13,7 +14,7 @@ import VideoStats from "@/components/sections/VideoStats/VideoStats.jsx";
 
 export default function App() {
   return (
-    <>
+    <Countdown>
       <Header />
       <main>
         <Hero />
@@ -32,6 +33,6 @@ export default function App() {
         <AboutProject />
       </main>
       <Footer />
-    </>
+    </Countdown>
   );
 }

@@ -1,0 +1,77 @@
+.countdown {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 32px);
+  padding: $container-padding;
+  background: $color-bg;
+  text-align: center;
+
+  &__logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    color: $color-text-faint;
+  }
+
+  &__timer {
+    display: flex;
+    gap: clamp(16px, 3vw, 32px);
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 64px;
+
+    @include mobile {
+      min-width: 48px;
+    }
+  }
+
+  &__value {
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: $color-white;
+  }
+
+  &__label {
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-text-faint;
+  }
+
+  &__skip {
+    @include reset-button;
+    margin-top: clamp(24px, 4vw, 40px);
+    padding: 10px 20px;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    color: $color-text-faint;
+    font-size: 0.8rem;
+    transition: $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+      border-color: $color-white;
+    }
+  }
+}

@@ -49,7 +49,7 @@
     }
   }
 
-  .container p {
+  .container > p {
     position: relative;
     z-index: 1400;
   }
@@ -163,7 +163,6 @@
 
   &__back {
     transform: rotateY(180deg);
-    // background: $color-accent-box;
     background-color: #dfdfdf;
     color: #262626;
     padding: 24px 22px;

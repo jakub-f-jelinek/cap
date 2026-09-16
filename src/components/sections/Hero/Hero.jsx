@@ -1,4 +1,3 @@
-// import heroVideo from "@/assets/video/open-video-hero.mp4";
 import logo from "@/assets/images/web-logo.png";
 import heroVideo from "@/assets/video/cap-openart-video.mp4";
 import { useVideoScrub } from "@/hooks/useVideoScrub.js";
