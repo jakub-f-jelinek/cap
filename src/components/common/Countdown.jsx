@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./Countdown.scss";
 
-const TARGET_DATE = new Date(2026, 8, 23, 12, 0, 0);
+const TARGET_DATE = new Date(2026, 8, 23, 10, 0, 0);
 
 function getTimeLeft() {
   const diff = Math.max(TARGET_DATE.getTime() - Date.now(), 0);

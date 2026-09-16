@@ -24,6 +24,12 @@
   }
 }
 
+@mixin short-height {
+  @media (max-height: #{$bp-short-height}) {
+    @content;
+  }
+}
+
 @mixin container {
   width: 100%;
   max-width: $container-max;

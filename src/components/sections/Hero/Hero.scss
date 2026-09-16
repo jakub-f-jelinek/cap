@@ -92,4 +92,27 @@
       white-space: normal;
     }
   }
+
+  // Pod 700px výšky obrazovky se hero__textbox (logo) na startu animace
+  // centruje přes celou výšku viewportu a začíná přesahovat do loga v
+  // headeru (position: fixed, nad hero sekcí). Zmenšením loga (škáluje se
+  // podle vh, ne pevnou hodnotou, ať platí i pro velmi nízké výšky) se
+  // vytvoří dostatečná rezerva, aby k překryvu nedocházelo.
+  @include short-height {
+    &__content {
+      gap: 8px;
+    }
+
+    &__textbox img {
+      width: clamp(140px, 50vh, 400px);
+    }
+
+    &__stat {
+      max-width: 520px;
+    }
+
+    .section-rule {
+      margin-block: 20px;
+    }
+  }
 }
