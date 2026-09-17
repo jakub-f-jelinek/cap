@@ -1,9 +1,8 @@
 ---
-title: "Kamera v autě jako tichý svědek"
-date: "11.10.2026"
-image: "article-1.png"
-url: "https://www.instagram.com/"
-excerpt: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Integer pellentesque quam vel velit. Maecenas libero. Vivamus ac leo pretium faucibus. Phasellus faucibus molestie nisl."
+title: "Vraky v ulicích Prahy"
+date: "23.9.2026"
+image: "prague-wrecks.png"
+url: "https://www.instagram.com/normalnirizeni/"
+excerpt: "Možná jste je už v Praze potkali. A možná vás napadlo, co tam dělají. Každý z nich připomíná situaci, která může za volantem působit úplně normálně. Dokud se něco nestane."
+hashtag: "#normalnirizeni #bezpecnajizda"
 ---
-
-Placeholder text pro detail článku, doplníme později.

@@ -1,9 +1,8 @@
 ---
-title: "Anatomie české nehody v kinech pod širým nebem"
-date: "11.10.2026"
-image: "article-2.png"
-url: "https://www.facebook.com/"
-excerpt: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Integer pellentesque quam vel velit. Maecenas libero. Vivamus ac leo pretium faucibus. Phasellus faucibus molestie nisl."
+title: "Normální předjíždění?"
+date: "13.9.2026"
+image: "normal-overtaking.png"
+url: "https://www.instagram.com/normalnirizeni/"
+excerpt: "Silnice je volná. Nic nejede. Tak proč nepředjet? Podobná rozhodnutí si za volantem umíme vysvětlit během vteřiny. To ale neznamená, že jsou bezpečná."
+hashtag: "#normalnirizeni #bezpecnajizda"
 ---
-
-Placeholder text pro detail článku, doplníme později.

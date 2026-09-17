@@ -1,9 +1,8 @@
 ---
-title: "Telefon za volantem: normální, nebo nebezpečné?"
-date: "11.10.2026"
-image: "article-4.png"
-url: "https://www.youtube.com/"
-excerpt: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Integer pellentesque quam vel velit. Maecenas libero. Vivamus ac leo pretium faucibus. Phasellus faucibus molestie nisl."
+title: "Mám to pod kontrolou"
+date: "1.9.2026"
+image: "car-wreck-control.png"
+url: "https://www.instagram.com/normalnirizeni/"
+excerpt: "Známe tu silnici. Spěcháme. Nebo prostě máme pocit, že víme, co děláme. Za volantem si svoje rozhodnutí dokážeme obhájit snadno. Pocit kontroly ale ještě neznamená bezpečí."
+hashtag: "#normalnirizeni #bezpecnajizda"
 ---
-
-Placeholder text pro detail článku, doplníme později.

@@ -1,9 +1,8 @@
 ---
-title: "Normální předjíždění zabíjí"
-date: "11.10.2026"
-image: "article-3.png"
-url: "https://www.linkedin.com/"
-excerpt: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Integer pellentesque quam vel velit. Maecenas libero. Vivamus ac leo pretium faucibus. Phasellus faucibus molestie nisl."
+title: "Jen se rychle podívám"
+date: "8.9.2026"
+image: "quick-look.png"
+url: "https://www.instagram.com/normalnirizeni/"
+excerpt: "Přišla zpráva. Jen se rychle podívám. Vždyť je to na pár vteřin. Jenže právě pár vteřin může za volantem znamenat mnohem víc, než si chceme připustit."
+hashtag: "#normalnirizeni #mobilzavolantem"
 ---
-
-Placeholder text pro detail článku, doplníme později.

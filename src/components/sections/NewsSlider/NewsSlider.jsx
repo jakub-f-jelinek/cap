@@ -46,6 +46,7 @@ export default function NewsSlider() {
                 <p className="news-card__date">{article.date}</p>
                 <span className="section-rule" />
                 <p className="news-card__excerpt">{article.excerpt}</p>
+                <p className="news-card__hashtag">{article.hashtag}</p>
               </article>
             </SwiperSlide>
           ))}
