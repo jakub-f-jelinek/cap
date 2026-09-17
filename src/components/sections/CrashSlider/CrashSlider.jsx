@@ -46,7 +46,12 @@ export default function CrashSlider() {
               },
             }}
             modules={[EffectCoverflow, Pagination]}
-            pagination={{ clickable: true, el: ".crash-slider__pagination" }}
+            pagination={{
+              clickable: true,
+              el: ".crash-slider__pagination",
+              renderBullet: (_index, className) =>
+                `<span class="${className}"><span class="crash-slider__bullet-dot"></span></span>`,
+            }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="crash-slider__swiper"
           >

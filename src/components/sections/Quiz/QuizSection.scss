@@ -86,14 +86,70 @@
     }
   }
 
-  &__slider {
+  // Sdílený grid pro šipky, slide a paginaci - drží šipky i tečky jako
+  // sourozence, ať jejich vzájemné zarovnání jde řešit čistě přes
+  // grid-template-areas bez duplikování tlačítek nebo počítání pozic v JS.
+  &__controls {
     width: min(100%, 920px);
     margin-inline: auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 12px;
+    grid-template-areas:
+      "prev slide next"
+      "pagination pagination pagination";
+
+    // Pod 1500px šipky přesunout k paginaci (na jednu a druhou stranu teček).
+    // Na mobilu se to chovat nemá - tam zůstávají šipky u slidu jako na
+    // desktopu.
+    @media (max-width: 1499px) {
+      grid-template-areas:
+        "slide slide slide"
+        "nav nav nav";
+
+      @include mobile {
+        grid-template-areas:
+          "prev slide next"
+          "pagination pagination pagination";
+      }
+    }
+  }
+
+  // Nad 1500px a na mobilu "zmizí" (display: contents) a šipky + paginace
+  // se zapojí přímo do rodičovského gridu, každý se svou vlastní grid-area
+  // (prev/pagination/next). Pod 1500px se z něj stane samostatný flex řádek,
+  // takže paginace nezabírá celou šířku - jen svou vlastní - a šipky ji
+  // obepínají těsně po stranách místo u krajů celého kontejneru.
+  &__nav-row {
+    display: contents;
+
+    @media (max-width: 1499px) {
+      grid-area: nav;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      @include mobile {
+        display: contents;
+      }
+    }
+  }
+
+  .btn__container--prev {
+    grid-area: prev;
+  }
+
+  .btn__container--next {
+    grid-area: next;
+  }
+
+  &__slider {
+    grid-area: slide;
     text-align: left;
     padding: clamp(20px, 3vw, 34px);
     padding-bottom: 0;
-    display: flex;
-    justify-content: space-between;
   }
 
   &__slide {
@@ -208,6 +264,7 @@
   }
 
   &__pagination {
+    grid-area: pagination;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

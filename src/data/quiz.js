@@ -48,7 +48,7 @@ export const quizQuestions = [
     question: "Dodržujete bezpečnou vzdálenost?",
     options: [
       { label: "Ano, držím si správný odstup.", score: 0 },
-      { label: "Když řidič přede mnou působí nebezpečně tak.", score: 1 },
+      { label: "Když řidič přede mnou působí nebezpečně.", score: 1 },
       { label: "Přiznávám, že se „lepím“.", score: 3 },
     ],
   },

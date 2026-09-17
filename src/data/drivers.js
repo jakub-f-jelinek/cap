@@ -7,13 +7,13 @@ export const drivers = [
   {
     name: "Tomáš",
     excerpt: "Tomáš vstával ve 3:30 ráno. Měl před sebou...",
-    bio: "Měl před sebou dlouhý den ve dvou pracích. Přestože byl po celém dni vyčerpaný, věřil, že cestu ještě zvládne. Za volantem usnul. Jeho dodávka narazila do lampy, která se zřítila na skupinu studentů. Devatenáctiletá Eva zemřela.",
+    bio: "Tomáš před sebou měl dlouhý den ve dvou pracích. Přestože byl po celém dni vyčerpaný, věřil, že cestu ještě zvládne. Za volantem usnul. Jeho dodávka narazila do lampy, která se zřítila na skupinu studentů. Devatenáctiletá Eva zemřela.",
     img: portrait_1,
   },
   {
     name: "Radomír",
     excerpt: "Radomírovi bylo 19 let. Ke křižovatce přijel...",
-    bio: "Radomír Radomírovi bylo 19 let. Ke křižovatce přijel ve chvíli, kdy svítila žlutá a rozhodl se pokračovat. Jel přitom63 km/h v místě s povolenou padesátkou. V křižovatce se střetl se skútrem. Sedmadvacetiletý řidič skútru nehodu nepřežil.",
+    bio: "Radomírovi bylo 19 let. Čekal na křižovatce ale, rozhodl se vyjet už na žlutou. Jel přitom 63 km/h v místě s povolenou padesátkou. V křižovatce se střetl se skútrem. Sedmadvacetiletý řidič skútru nehodu nepřežil.",
     img: portrait_2,
   },
   {

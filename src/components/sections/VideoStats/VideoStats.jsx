@@ -6,9 +6,20 @@ import { useState } from "react";
 import "./VideoStats.scss";
 
 const stats = [
-  { value: 32, label: "Smrtelných dopravních nehod způsobuje normální řízení" },
-  { value: 67, label: "Řidičů běžně překračuje rychlost" },
-  { value: 48, label: "Řidičů nedává blinkr při změně směru jízdy" },
+  {
+    value: 82,
+    suffix: "%",
+    label: "Smrtelných dopravních nehod způsobuje normální řízení",
+  },
+  {
+    value: 74,
+    label: "Lidí zemřelo kvůli nepoužívání pásu.  Dalších 1 779 bylo zraněno.",
+  },
+  {
+    value: 58,
+    label:
+      "Lidí zemřelo kvůli nedání přednosti. Dalších 425 bylo těžce zraněno.",
+  },
 ];
 
 export default function VideoStats() {
@@ -34,6 +45,7 @@ export default function VideoStats() {
               key={stat.label}
               value={stat.value}
               label={stat.label}
+              suffix={stat.suffix}
             />
           ))}
         </div>

@@ -4,6 +4,7 @@
   background-size: cover;
   min-height: 60vh;
   position: relative;
+  background: url("@/assets/images/documentary-phone.png");
 
   .documentary__bg {
     position: absolute;
@@ -14,6 +15,29 @@
       inset: 0;
       background: linear-gradient(to right, transparent 25%, #010101 80%);
     }
+  }
+
+  // Musí být zapsáno až po základním (desktopovém) .documentary__bg pravidlu
+  // výše - obě mají stejnou specificitu, takže by jinak zápis "vyhrál" ten
+  // pozdější v pořadí zdrojáku bez ohledu na media query, a horizontální
+  // desktopový gradient by na mobilu dál prosvítal navrch.
+  @include tablet {
+    padding-top: 260px !important;
+    background-size: cover !important;
+    background: url("@/assets/images/documentary-phone_responsive.png");
+
+    .documentary__bg {
+      &::after {
+        // Desktopový (horizontální) gradient z pravidla výše by se jinak
+        // vykresloval navrch i na mobilu - zde se pro mobil vypíná.
+        // background: none;
+        background: linear-gradient(to bottom, transparent 25%, #000 80%);
+      }
+    }
+  }
+
+  @include mobile {
+    background-size: contain !important;
   }
 
   .documentary__btn {

@@ -74,9 +74,24 @@
     box-shadow: 0 4px 64px 0 rgba(255, 255, 255, 0.09);
   }
 
-  &:hover &__inner,
   &:focus-visible &__inner {
     transform: rotateY(180deg);
+  }
+
+  // Desktop: klasický hover. Dotyková zařízení nemají spolehlivý :hover
+  // (mobilní prohlížeče po tapu "hover" jen podrží, dokud se netapne jinam -
+  // druhý tap na stejnou kartu by tak otočení nikdy nezrušil), proto tam
+  // řídí otočení výhradně JS stav přes tap (viz driver-card--flipped níže).
+  @media (hover: hover) {
+    &:hover &__inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  @media (hover: none) {
+    &.driver-card--flipped &__inner {
+      transform: rotateY(180deg);
+    }
   }
 
   &__front,

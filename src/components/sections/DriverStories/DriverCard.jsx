@@ -1,6 +1,14 @@
+import { useState } from "react";
+
 export default function DriverCard({ driver }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className="driver-card" tabIndex={0}>
+    <div
+      className={`driver-card${isFlipped ? " driver-card--flipped" : ""}`}
+      tabIndex={0}
+      onClick={() => setIsFlipped((flipped) => !flipped)}
+    >
       <div className="driver-card__inner">
         <div className="driver-card__front">
           <img src={driver.img} alt={driver.name} loading="lazy" />

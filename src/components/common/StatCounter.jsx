@@ -4,7 +4,7 @@ import "./StatCounter.scss";
 
 export default function StatCounter({
   value,
-  suffix = " %",
+  suffix = "",
   label,
   duration = 900,
 }) {

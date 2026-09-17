@@ -81,33 +81,40 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
     margin-top: 24px;
+    width: auto;
 
-    @include mobile {
-      gap: 20px;
-    }
-
+    // Klikatelná plocha je skutečný element (span obalující tečku), ne
+    // ::after s záporným insetem - ten na tap/klik na mobilu spolehlivě
+    // nefungoval. Rozestup teček proto řeší padding bullets, ne gap.
     .swiper-pagination-bullet {
       position: relative;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // Swiperovo vlastní CSS dává na tento element background (černou,
+      // po aktivaci modrou theme barvu) - na zvětšené ploše by prosvítalo.
+      background: transparent;
+      opacity: 1;
+      cursor: pointer;
+      margin: 0 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: transparent;
+    }
+
+    .crash-slider__bullet-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: $color-text-faint;
-      opacity: 1;
       transition: background 0.25s $ease-out;
-      cursor: pointer;
-      margin: 0 !important;
-
-      // Zvětšuje jen klikatelnou/tap plochu, ne vizuální velikost tečky.
-      &::after {
-        content: "";
-        position: absolute;
-        inset: -12px;
-      }
     }
 
-    .swiper-pagination-bullet-active {
+    .swiper-pagination-bullet-active .crash-slider__bullet-dot {
       background: $color-white;
     }
   }

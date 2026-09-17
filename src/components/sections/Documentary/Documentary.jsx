@@ -1,4 +1,4 @@
-import phoneMockup from "@/assets/images/documentary-phone.png";
+// import phoneMockup from "@/assets/images/documentary-phone.png";
 import VideoModal from "@/components/common/VideoModal.jsx";
 import { useState } from "react";
 import "./Documentary.scss";
@@ -7,11 +7,7 @@ export default function Documentary() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section
-      id="dokument"
-      className="documentary section"
-      style={{ backgroundImage: `url(${phoneMockup})` }}
-    >
+    <section id="dokument" className="documentary section">
       <div className="documentary__bg"></div>
       <div className="container documentary__layout">
         {/* Empty div - parent element is grid */}
