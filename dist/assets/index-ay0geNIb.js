@@ -50,7 +50,7 @@ Error generating stack: `+i.message+`
         scale(${1-v*.2})
       `}const w=Math.min(Math.max((f-Rf)/(AP-Rf),0),1);r.current&&(r.current.style.opacity=String(w),r.current.style.transform=`translateY(${(1-w)*24}px)`)},l=typeof window<"u"&&window.innerWidth<=DP?RP:NP,{videoRef:a,wrapperRef:u,progressRef:c,seekToProgress:d}=Xg(o,{minProgress:l,maxProgress:IP});return g.jsx("section",{id:"hero",className:"hero",ref:u,children:g.jsxs("div",{className:"hero__stage",ref:t,children:[g.jsx("video",{ref:a,className:"hero__video",src:jP,autoPlay:!0,muted:!0,playsInline:!0,"webkit-playsinline":"true",preload:"auto",onLoadedMetadata:f=>{d(f.currentTarget,c.current,!0)}}),g.jsx("div",{className:"hero__scrim"}),g.jsxs("div",{ref:e,className:"hero__content",children:[g.jsx("div",{ref:n,className:"hero__textbox",children:g.jsx("img",{className:"hero__logo",src:Ku,alt:"čap-logo",loading:"lazy"})}),g.jsxs("div",{ref:r,className:"hero__stat",children:[g.jsx("p",{className:"hero__stat-number",children:"346 ŽIVOTŮ"}),g.jsx("span",{className:"section-rule"}),g.jsx("p",{className:"hero__stat-copy",children:"Tolik lidí v roce 2025 zabilo chování za volantem, které jsme si zvykli považovat za „normální“."}),g.jsx("p",{className:"hero__stat-copy--source",children:"Zdroj: Policie ČR, statistika smrtelných nehod zaviněných řidičem, po odečtení agresivní jízdy, 2025"})]})]})]})})}const VP=`---
 title: "Vraky v ulicích Prahy"
-date: "23.9.2026"
+# date: "23.9.2026"
 image: "prague-wrecks.png"
 url: "https://www.instagram.com/normalnirizeni/"
 excerpt: "Možná jste je už v Praze potkali. A možná vás napadlo, co tam dělají. Každý z nich připomíná situaci, která může za volantem působit úplně normálně. Dokud se něco nestane."
@@ -58,7 +58,7 @@ hashtag: "#normalnirizeni #bezpecnajizda"
 ---
 `,FP=`---
 title: "Normální předjíždění?"
-date: "13.9.2026"
+# date: "13.9.2026"
 image: "normal-overtaking.png"
 url: "https://www.instagram.com/normalnirizeni/"
 excerpt: "Silnice je volná. Nic nejede. Tak proč nepředjet? Podobná rozhodnutí si za volantem umíme vysvětlit během vteřiny. To ale neznamená, že jsou bezpečná."
@@ -66,7 +66,7 @@ hashtag: "#normalnirizeni #bezpecnajizda"
 ---
 `,BP=`---
 title: "Jen se rychle podívám"
-date: "8.9.2026"
+# date: "8.9.2026"
 image: "quick-look.png"
 url: "https://www.instagram.com/normalnirizeni/"
 excerpt: "Přišla zpráva. Jen se rychle podívám. Vždyť je to na pár vteřin. Jenže právě pár vteřin může za volantem znamenat mnohem víc, než si chceme připustit."
@@ -74,7 +74,7 @@ hashtag: "#normalnirizeni #mobilzavolantem"
 ---
 `,$P=`---
 title: "Mám to pod kontrolou"
-date: "1.9.2026"
+# date: "1.9.2026"
 image: "car-wreck-control.png"
 url: "https://www.instagram.com/normalnirizeni/"
 excerpt: "Známe tu silnici. Spěcháme. Nebo prostě máme pocit, že víme, co děláme. Za volantem si svoje rozhodnutí dokážeme obhájit snadno. Pocit kontroly ale ještě neznamená bezpečí."
