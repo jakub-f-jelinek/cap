@@ -10,8 +10,8 @@ const scssPrelude = `@use "styles/variables" as *;\n@use "styles/mixins" as *;\n
 
 export default defineConfig({
   plugins: [react()],
-  // GitHub Pages serves this app from /cap/, other hosts typically from "/".
-  base: process.env.DEPLOY_BASE || "/cap/",
+  // Default is root ("/") for production domains; the GitHub Pages workflow sets DEPLOY_BASE=/cap/.
+  base: process.env.DEPLOY_BASE || "/",
   resolve: {
     alias: {
       "@": srcDir,
