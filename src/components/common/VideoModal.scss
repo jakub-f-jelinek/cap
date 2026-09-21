@@ -49,5 +49,27 @@
     font-size: 1rem;
     text-align: center;
     padding: 24px;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      @include reset-button;
+      padding: 12px 22px;
+      border: 1px solid $color-white;
+      color: $color-white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition:
+        background 0.2s $ease-out,
+        color 0.2s $ease-out;
+
+      &:hover,
+      &:focus-visible {
+        background: $color-white;
+        color: $color-ink;
+      }
+    }
   }
 }

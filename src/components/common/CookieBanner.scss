@@ -1,0 +1,162 @@
+.cookie-banner {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 1000;
+  max-height: 100dvh;
+  overflow-y: auto;
+  background: rgba(17, 17, 19, 0.96);
+  border-top: 1px solid $color-border-soft;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  outline: none;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(20px, 4vw, 56px);
+    padding-block: 20px;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__text {
+    max-width: 760px;
+    color: $color-text-muted;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+
+    a {
+      color: $color-white;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+
+  &__options {
+    margin-top: 16px;
+    border-top: 1px solid $color-border-soft;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 14px;
+      border-bottom: 1px solid $color-border-soft;
+    }
+  }
+
+  &__option-title {
+    font-weight: 700;
+    color: $color-white;
+  }
+
+  &__always {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: $color-text-faint;
+  }
+
+  &__switch {
+    @include reset-button;
+    @include focus-ring;
+    position: relative;
+    flex-shrink: 0;
+    width: 44px;
+    height: 24px;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    transition:
+      background 0.2s $ease-out,
+      border-color 0.2s $ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: $color-white;
+      transition: transform 0.2s $ease-out;
+    }
+
+    &[aria-checked="true"] {
+      background: $color-purple;
+      border-color: $color-purple;
+
+      &::after {
+        transform: translateX(20px);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 12px;
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    button {
+      @include reset-button;
+      @include focus-ring;
+      padding: 12px 22px;
+      border: 1px solid $color-white;
+      color: $color-white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-align: center;
+      text-transform: uppercase;
+      transition:
+        background 0.2s $ease-out,
+        color 0.2s $ease-out;
+
+      &:hover,
+      &:focus-visible {
+        background: $color-white;
+        color: $color-ink;
+      }
+    }
+
+    .cookie-banner__link {
+      padding-inline: 4px;
+      border-color: transparent;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+
+      &:hover,
+      &:focus-visible {
+        background: none;
+        color: $color-white;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-white;
+      }
+    }
+  }
+}

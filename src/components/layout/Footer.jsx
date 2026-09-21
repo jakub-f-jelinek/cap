@@ -1,11 +1,13 @@
 import { useState } from "react";
 import logoWeb from "@/assets/images/web-logo.png";
 import PrivacyPolicyModal from "@/components/common/PrivacyPolicyModal";
+import { useCookieConsent } from "@/context/CookieConsent.jsx";
 import { footerColumns, footerContact } from "@/data/footer.js";
 import "./Footer.scss";
 
 export default function Footer() {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const { showSettings } = useCookieConsent();
 
   return (
     <footer className="footer">
@@ -49,6 +51,10 @@ export default function Footer() {
                         type="button"
                         onClick={() => setIsPrivacyOpen(true)}
                       >
+                        {link.label}
+                      </button>
+                    ) : link.modal === "cookies" ? (
+                      <button type="button" onClick={showSettings}>
                         {link.label}
                       </button>
                     ) : (

@@ -1,3 +1,5 @@
+import privacyPolicy from "@/assets/docs/cookies/cookies_stopnormalnimurizeni.cz.pdf";
+
 export const footerContact = {
   name: "Stanislava Vyhlídalová",
   role: "Kontaktní osoba",
@@ -27,10 +29,9 @@ export const footerColumns = [
     links: [
       {
         label: "Zásady ochrany osobních údajů",
-        href: "#",
-        modal: "privacy",
+        href: privacyPolicy,
       },
-      { label: "Změna nastavení cookies", href: "#" },
+      { label: "Změna nastavení cookies", modal: "cookies" },
     ],
   },
   {

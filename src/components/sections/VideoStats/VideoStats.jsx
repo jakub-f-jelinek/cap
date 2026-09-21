@@ -8,8 +8,8 @@ import "./VideoStats.scss";
 const stats = [
   {
     value: 82,
-    suffix: "%",
-    label: "Smrtelných dopravních nehod způsobuje normální řízení",
+    suffix: " %",
+    label: "Smrtelných dopravních nehod způsobuje normální řízení.",
   },
   {
     value: 74,

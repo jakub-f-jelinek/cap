@@ -33,7 +33,7 @@ export default function Documents() {
       />
 
       <div className="container">
-        <p className="section-eyebrow">Dokumenty</p>
+        <p className="section-eyebrow">Pro média</p>
         <span className="section-rule" />
 
         <div className="documents__list">

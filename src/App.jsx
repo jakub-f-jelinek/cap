@@ -1,3 +1,4 @@
+import CookieBanner from "@/components/common/CookieBanner.jsx";
 import Countdown from "@/components/common/Countdown.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import Header from "@/components/layout/Header.jsx";
@@ -33,6 +34,7 @@ export default function App() {
         <AboutProject />
       </main>
       <Footer />
+      <CookieBanner />
     </Countdown>
   );
 }

@@ -26,8 +26,9 @@ export default function AboutProject() {
               prostor k zamyšlení nad vlastní odpovědností.
             </p>
             <p>
-              Na projektu ČAP spolupracuje s Policií ČR. Projekt je podpořen z
-              prostředků Fondu zábrany škod České kanceláře pojistitelů.
+              Česká asociace pojišťoven spolupracuje na projektu s Policií ČR.
+              Projekt je podpořen z prostředků Fondu zábrany škod České
+              kanceláře pojistitelů.
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import heroVideo from "@/assets/video/openart-video.mp4";
+import spotVideo from "@/assets/video/cap_video-spot.mp4";
+import { useCookieConsent } from "@/context/CookieConsent.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import "./VideoModal.scss";
@@ -8,8 +9,10 @@ export default function VideoModal({
   onClose,
   youtubeId,
   title,
-  videoSrc = heroVideo,
+  videoSrc = spotVideo,
 }) {
+  const { analyticsAllowed, acceptAll } = useCookieConsent();
+
   useEffect(() => {
     if (!isOpen) return undefined;
     const onKeyDown = (event) => {
@@ -54,7 +57,17 @@ export default function VideoModal({
               &times;
             </button>
 
-            {youtubeId ? (
+            {youtubeId && !analyticsAllowed ? (
+              <div className="video-modal__placeholder">
+                <p>
+                  Přehrání videa načte externí obsah z YouTube, který
+                  používá cookies.
+                </p>
+                <button type="button" onClick={acceptAll}>
+                  Povolit a přehrát
+                </button>
+              </div>
+            ) : youtubeId ? (
               <iframe
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
                 title={title}

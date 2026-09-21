@@ -83,10 +83,10 @@ export default function CrashSlider() {
         <h3>O kampani</h3>
         <p>
           Kampaň Normální řízení zabíjí proto upozorňuje na to, jak je naše
-          "normální" řízení ve skutečnosti nebezpečné a jak fatální následky
+          „normální“ řízení ve skutečnosti nebezpečné a jak fatální následky
           může mít. Chceme, aby si lidé uvědomili, že rizikem na silnicích
-          nejsou vždy "ti druzí", ale velmi často my sami. Poznáváte se v těchto
-          „normálních" situacích? Právě u vlastních každodenních návyků začíná
+          nejsou vždy „ti druzí“, ale velmi často my sami. Poznáváte se v těchto
+          „normálních“ situacích? Právě u vlastních každodenních návyků začíná
           změna k bezpečné jízdě.
         </p>
       </div>
