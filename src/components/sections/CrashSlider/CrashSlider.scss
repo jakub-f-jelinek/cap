@@ -143,6 +143,16 @@
     }
   }
 
+  &__note {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: $color-text-faint;
+
+    @include mobile {
+      margin-inline: auto;
+    }
+  }
+
   &__about {
     position: relative;
     display: flex;

@@ -4,7 +4,6 @@ import Footer from "@/components/layout/Footer.jsx";
 import Header from "@/components/layout/Header.jsx";
 import AboutProject from "@/components/sections/AboutProject/AboutProject.jsx";
 import CrashSlider from "@/components/sections/CrashSlider/CrashSlider.jsx";
-import Documentary from "@/components/sections/Documentary/Documentary.jsx";
 import Documents from "@/components/sections/Documents/Documents.jsx";
 import DriverStories from "@/components/sections/DriverStories/DriverStories.jsx";
 import Hero from "@/components/sections/Hero/Hero.jsx";
@@ -23,7 +22,7 @@ export default function App() {
         <VideoStats />
         <CrashSlider />
         <section className="section-bleed">
-          <Documentary />
+          {/* <Documentary /> */}
           <DriverStories />
         </section>
         <section className="section-bleed">

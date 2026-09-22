@@ -59,4 +59,10 @@
       grid-template-columns: 1fr;
     }
   }
+
+  &__note {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: $color-text-faint;
+  }
 }

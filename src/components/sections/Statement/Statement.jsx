@@ -125,12 +125,12 @@ export default function Statement() {
               <br />i když si to nepřipouštíme
             </h2>
             <p>
-              Při řízení své drobné prohřešky často omlouváme slovem "jen". Jen
+              Při řízení své drobné prohřešky často omlouváme slovem „jen“. Jen
               trochu zrychlím. Jen se rychle podívám na mobil. Jen si nechám
               menší odstup. Jen ještě kousek pojedu, i když jsem unavený.
               Připadá nám to normální. Protože to děláme běžně. Protože to
-              dělají i ostatní. Protože jsme to už tolikrát udělali a zatím se
-              nic nestalo.
+              dělají i ostatní. Protože jsme to už tolikrát udělali a&nbsp;zatím
+              se nic nestalo.
             </p>
           </div>
         </div>

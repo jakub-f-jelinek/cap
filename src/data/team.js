@@ -4,7 +4,7 @@ export const team = [
     role: "Výkonný ředitel České asociace pojišťoven",
   },
   {
-    name: "plk. Mgr. Michal Hodboď",
+    name: "plk. Michal Hodboď",
     role: "Šéf dopravní policie",
   },
   {

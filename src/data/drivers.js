@@ -11,9 +11,9 @@ export const drivers = [
     img: portrait_1,
   },
   {
-    name: "Radomír",
-    excerpt: "Radomírovi bylo 19 let. Ke křižovatce přijel...",
-    bio: "Radomírovi bylo 19 let. Čekal na křižovatce ale, rozhodl se vyjet už na žlutou. Jel přitom 63 km/h v místě s povolenou padesátkou. V křižovatce se střetl se skútrem. Sedmadvacetiletý řidič skútru nehodu nepřežil.",
+    name: "Rado",
+    excerpt: "Radovi bylo 19 let. Ke křižovatce přijel...",
+    bio: "Radovi bylo 19 let. Čekal na křižovatce ale, rozhodl se vyjet už na žlutou. Jel přitom 63 km/h v místě s povolenou padesátkou. V křižovatce se střetl se skútrem. Sedmadvacetiletý řidič skútru nehodu nepřežil.",
     img: portrait_2,
   },
   {

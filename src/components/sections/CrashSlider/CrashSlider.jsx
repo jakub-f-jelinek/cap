@@ -76,6 +76,7 @@ export default function CrashSlider() {
           <p className="section-eyebrow">{active.title}</p>
           <span className="section-rule" />
           <p className="crash-slider__detail">{active.detail}</p>
+          <p className="crash-slider__note">Data za rok 2025.</p>
         </div>
       </div>
 

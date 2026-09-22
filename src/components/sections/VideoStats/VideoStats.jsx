@@ -49,6 +49,8 @@ export default function VideoStats() {
             />
           ))}
         </div>
+
+        <p className="video-stats__note">Data za rok 2025.</p>
       </div>
 
       <VideoModal
