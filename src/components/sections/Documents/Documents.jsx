@@ -13,7 +13,7 @@ import {
 
 export default function Documents() {
   return (
-    <section id="dokumenty" className="documents section">
+    <section id="media" className="documents section">
       <ScrollGlass
         className="documents__glass documents__glass--1"
         src={glass_1}

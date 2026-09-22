@@ -85,7 +85,7 @@ export default function Countdown({ children }) {
               className="countdown__skip"
               onClick={() => setSkipped(true)}
             >
-              Přeskočit odpočet (testovací tlačítko)
+              Přeskočit odpočet
             </button>
           </motion.div>
         )}
