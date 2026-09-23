@@ -79,14 +79,6 @@ export default function Countdown({ children }) {
                 <span className="countdown__label">vteřin</span>
               </div>
             </div>
-
-            <button
-              type="button"
-              className="countdown__skip"
-              onClick={() => setSkipped(true)}
-            >
-              Přeskočit odpočet
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
