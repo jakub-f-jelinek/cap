@@ -11,8 +11,11 @@ import NewsSlider from "@/components/sections/NewsSlider/NewsSlider.jsx";
 import QuizSection from "@/components/sections/Quiz/QuizSection.jsx";
 import Statement from "@/components/sections/Statement/Statement.jsx";
 import VideoStats from "@/components/sections/VideoStats/VideoStats.jsx";
+import { useGoogleTagManager } from "@/hooks/useGoogleTagManager.js";
 
 export default function App() {
+  useGoogleTagManager();
+
   return (
     <Countdown>
       <Header />

@@ -1,5 +1,5 @@
-import doc1 from "@/assets/docs/CAP_NORMALNI_RIZENI_ZABIJI_TISKOVA_Konference.pdf";
-import doc2 from "@/assets/docs/TZ_Normalni_rizeni_zabiji.pdf";
+import doc1 from "@/assets/docs/CAP_NORMALNI_RIZENI_ZABIJI--tiskova-Konference.pdf";
+import doc2 from "@/assets/docs/TZ-Normalni_rizeni_zabiji.pdf";
 
 export const documents = [
   {
