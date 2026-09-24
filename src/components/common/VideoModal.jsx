@@ -7,7 +7,7 @@ import "./VideoModal.scss";
 export default function VideoModal({
   isOpen,
   onClose,
-  youtubeId,
+  youtubeId = "g6QmWAgzpWo",
   title,
   videoSrc = spotVideo,
 }) {

@@ -25,10 +25,12 @@
     }
   }
 
-  &__members {
+  &__members,
+  &__logos {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(24px, 3vw, 40px);
+
     margin-top: clamp(28px, 4vw, 40px);
 
     @include tablet {
@@ -47,4 +49,36 @@
     font-size: 1rem;
     line-height: 1.5;
   }
+
+  &__logos {
+    > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.logos__ckp {
+  padding-block: clamp(24px, 3vw, 40px);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+  }
+
+  img {
+    width: 183px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.logos__police {
+  width: 100px;
 }
