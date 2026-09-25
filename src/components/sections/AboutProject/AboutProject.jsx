@@ -1,5 +1,5 @@
 import logoCap from "@/assets/images/cap_logo.svg";
-import logoCkp from "@/assets/images/ckp_logo.png";
+import logoCkp from "@/assets/images/ckp-text-logo.svg";
 import logoPolice from "@/assets/images/PCR_logo.svg";
 import { team } from "@/data/team.js";
 import "./AboutProject.scss";
@@ -66,7 +66,6 @@ export default function AboutProject() {
             <div />
           </div>
           <div className="logos__ckp">
-            <p>Financováno z fondu zábrany škod</p>
             <img src={logoCkp} alt="Logo ČKP" />
           </div>
         </div>

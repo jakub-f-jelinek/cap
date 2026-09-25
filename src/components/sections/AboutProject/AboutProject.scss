@@ -64,12 +64,8 @@
   gap: 24px;
   align-items: center;
 
-  p {
-    font-weight: 700;
-  }
-
   img {
-    width: 183px;
+    width: 200px;
   }
 
   @include mobile {
