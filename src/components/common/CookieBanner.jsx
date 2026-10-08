@@ -19,11 +19,14 @@ export default function CookieBanner() {
     closePanel,
   } = useCookieConsent();
   const [analytics, setAnalytics] = useState(consent?.analytics === true);
+  const [marketing, setMarketing] = useState(consent?.marketing === true);
   const rootRef = useRef(null);
   const isSettings = panel === "settings";
 
   useEffect(() => {
-    if (isSettings) setAnalytics(consent?.analytics === true);
+    if (!isSettings) return;
+    setAnalytics(consent?.analytics === true);
+    setMarketing(consent?.marketing === true);
   }, [isSettings, consent]);
 
   // Reopened from the footer: move focus to the bar. Esc dismisses it, but
@@ -60,8 +63,8 @@ export default function CookieBanner() {
                 Cookies
               </p>
               <p>
-                Web používá nezbytné cookies pro svůj provoz. Analytické cookies
-                a externí obsah (např. videa z YouTube) zapneme jen s vaším
+                Web používá nezbytné cookies pro svůj provoz. Analytické a marketingové
+                cookies a externí obsah (např. videa z YouTube) zapneme jen s vaším
                 souhlasem. Více v{" "}
                 <a href={privacyPolicyHref} target="_blank" rel="noreferrer">
                   Zásadách ochrany osobních údajů
@@ -89,10 +92,7 @@ export default function CookieBanner() {
                       >
                         Analytické
                       </p>
-                      <p>
-                        Měření návštěvnosti a externí obsah třetích stran
-                        (např. YouTube).
-                      </p>
+                      <p>Měření návštěvnosti webu.</p>
                     </div>
                     <button
                       type="button"
@@ -103,6 +103,28 @@ export default function CookieBanner() {
                       onClick={() => setAnalytics((value) => !value)}
                     />
                   </li>
+                  <li>
+                    <div>
+                      <p
+                        className="cookie-banner__option-title"
+                        id="cookie-marketing-label"
+                      >
+                        Marketingové
+                      </p>
+                      <p>
+                        Reklama a měření její účinnosti a externí obsah třetích
+                        stran (např. YouTube).
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={marketing}
+                      aria-labelledby="cookie-marketing-label"
+                      className="cookie-banner__switch"
+                      onClick={() => setMarketing((value) => !value)}
+                    />
+                  </li>
                 </ul>
               )}
             </div>
@@ -110,7 +132,7 @@ export default function CookieBanner() {
             <div className="cookie-banner__actions">
               {isSettings ? (
                 <>
-                  <button type="button" onClick={() => save(analytics)}>
+                  <button type="button" onClick={() => save({ analytics, marketing })}>
                     Uložit nastavení
                   </button>
                   <button type="button" onClick={acceptAll}>

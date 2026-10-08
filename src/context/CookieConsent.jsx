@@ -7,7 +7,7 @@ import {
 } from "react";
 
 // Bump when the purposes of the cookies change so visitors are asked again.
-const CONSENT_VERSION = 1;
+const CONSENT_VERSION = 2;
 const STORAGE_KEY = "cookie-consent";
 
 const CookieConsentContext = createContext(null);
@@ -35,10 +35,11 @@ export function CookieConsentProvider({ children }) {
   // null = hidden, "banner" = compact bar, "settings" = bar with toggles
   const [panel, setPanel] = useState(() => (readConsent() ? null : "banner"));
 
-  const save = useCallback((analytics) => {
+  const save = useCallback(({ analytics, marketing }) => {
     const next = {
       version: CONSENT_VERSION,
       analytics,
+      marketing,
       timestamp: new Date().toISOString(),
     };
     writeConsent(next);
@@ -50,9 +51,10 @@ export function CookieConsentProvider({ children }) {
     () => ({
       consent,
       analyticsAllowed: consent?.analytics === true,
+      marketingAllowed: consent?.marketing === true,
       panel,
-      acceptAll: () => save(true),
-      rejectOptional: () => save(false),
+      acceptAll: () => save({ analytics: true, marketing: true }),
+      rejectOptional: () => save({ analytics: false, marketing: false }),
       save,
       showSettings: () => setPanel("settings"),
       closePanel: () => setPanel(null),

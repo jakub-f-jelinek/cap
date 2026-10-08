@@ -11,7 +11,7 @@ export default function VideoModal({
   title,
   videoSrc = spotVideo,
 }) {
-  const { analyticsAllowed, acceptAll } = useCookieConsent();
+  const { marketingAllowed, acceptAll } = useCookieConsent();
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -57,7 +57,7 @@ export default function VideoModal({
               &times;
             </button>
 
-            {youtubeId && !analyticsAllowed ? (
+            {youtubeId && !marketingAllowed ? (
               <div className="video-modal__placeholder">
                 <p>
                   Přehrání videa načte externí obsah z YouTube, který používá

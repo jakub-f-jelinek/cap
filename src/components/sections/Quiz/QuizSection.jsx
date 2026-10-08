@@ -7,6 +7,7 @@ import glassLeft_2 from "@/assets/glass/glass_quiz_left-2.png";
 import glassLeft_3 from "@/assets/glass/glass_quiz_left-3.png";
 import ScrollGlass from "@/components/common/ScrollGlass.jsx";
 import { getQuizResult, quizQuestions } from "@/data/quiz.js";
+import { trackEvent } from "@/utils/trackEvent.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -38,6 +39,7 @@ export default function QuizSection() {
 
   const handleStart = () => {
     setStarted(true);
+    trackEvent("quiz_start");
   };
 
   const handleAnswerChange = (score) => {
@@ -59,8 +61,13 @@ export default function QuizSection() {
 
     if (isLastSlide) {
       const totalScore = answers.reduce((sum, value) => sum + (value ?? 0), 0);
-      setResult(getQuizResult(totalScore));
+      const quizResult = getQuizResult(totalScore);
+      setResult(quizResult);
       setShowResult(true);
+      trackEvent("quiz_completed", {
+        quiz_result: quizResult.label,
+        quiz_score: totalScore,
+      });
       return;
     }
 
