@@ -36,7 +36,7 @@ export default function Documentary() {
             className="documentary__btn"
             onClick={() => setOpen(true)}
           >
-            Přehrát dokument
+            Přehrát trailer
           </button>
         </div>
       </div>

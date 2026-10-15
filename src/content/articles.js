@@ -23,6 +23,7 @@ export const articles = Object.entries(rawFiles)
     const { data, content } = parseFrontmatter(raw);
     return {
       slug: path.split("/").pop().replace(".md", ""),
+      order: data.order ? Number(data.order) : Infinity,
       title: data.title ?? "",
       date: data.date ?? "",
       url: data.url ?? "#",
@@ -32,4 +33,5 @@ export const articles = Object.entries(rawFiles)
       content,
     };
   })
-  .sort((a, b) => a.slug.localeCompare(b.slug));
+  // Lower `order` first; articles without it go last, ordered by slug.
+  .sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug));
