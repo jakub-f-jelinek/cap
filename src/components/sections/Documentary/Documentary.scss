@@ -4,7 +4,7 @@
   background-size: cover;
   min-height: 60vh;
   position: relative;
-  background: url("@/assets/images/documentary-phone.png");
+  background-image: url("@/assets/images/documentary-bg-desktop.jpg");
 
   .documentary__bg {
     position: absolute;
@@ -23,8 +23,8 @@
   // desktopový gradient by na mobilu dál prosvítal navrch.
   @include tablet {
     padding-top: 260px !important;
-    background-size: cover !important;
-    background: url("@/assets/images/documentary-phone_responsive.png");
+    background-size: cover;
+    background-image: url("@/assets/images/documentary-bg-mobile.png");
 
     .documentary__bg {
       &::after {
@@ -37,7 +37,7 @@
   }
 
   @include mobile {
-    background-size: contain !important;
+    background-size: contain;
   }
 
   .documentary__btn {

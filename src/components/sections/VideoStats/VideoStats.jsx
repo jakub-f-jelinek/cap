@@ -1,4 +1,4 @@
-import placeholder from "@/assets/images/img-placeholder.png";
+import placeholder from "@/assets/images/spot-placeholder.png";
 import PlayButton from "@/components/common/PlayButton.jsx";
 import StatCounter from "@/components/common/StatCounter.jsx";
 import VideoModal from "@/components/common/VideoModal.jsx";
@@ -53,6 +53,7 @@ export default function VideoStats() {
 
       <VideoModal
         isOpen={open}
+        youtubeId="g6QmWAgzpWo"
         onClose={() => setOpen(false)}
         title="Normální řízení zabíjí"
       />

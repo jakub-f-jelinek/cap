@@ -1,4 +1,3 @@
-// import phoneMockup from "@/assets/images/documentary-phone.png";
 import VideoModal from "@/components/common/VideoModal.jsx";
 import { useState } from "react";
 import "./Documentary.scss";
@@ -43,6 +42,7 @@ export default function Documentary() {
 
       <VideoModal
         isOpen={open}
+        youtubeId="DpfKp8ulORk"
         onClose={() => setOpen(false)}
         title="Jediná vteřina"
       />
