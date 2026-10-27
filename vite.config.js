@@ -12,6 +12,8 @@ export default defineConfig({
   plugins: [react()],
   // Default is root ("/") for production domains; the GitHub Pages workflow sets DEPLOY_BASE=/cap/.
   base: process.env.DEPLOY_BASE || "/",
+  // Word documents in src/assets/docs are imported as URLs, same as PDFs.
+  assetsInclude: ["**/*.docx", "**/*.doc"],
   resolve: {
     alias: {
       "@": srcDir,
