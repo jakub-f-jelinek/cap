@@ -104,7 +104,7 @@ hashtag: "#normalnirizeni #jedinavterina"
 ---
 `,uP=`---
 order: 7
-title: "Slavnostní premiéra Jediná vteřina se odehrála 26. 10. v Lucerně kino Světozoru"
+title: "Slavnostní premiéra dokumentu Jediná vteřina se odehrála 26. 10. v kino Lucerna a Světozor"
 # date: "1.9.2026"
 image: "jedina-vterina-lucerna.jpg"
 # url: "https://www.instagram.com/p/Ded-ZNmCV3Z/"
