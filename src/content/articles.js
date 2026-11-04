@@ -26,7 +26,7 @@ export const articles = Object.entries(rawFiles)
       order: data.order ? Number(data.order) : Infinity,
       title: data.title ?? "",
       date: data.date ?? "",
-      url: data.url ?? "#",
+      url: data.url ?? null,
       excerpt: data.excerpt ?? "",
       hashtag: data.hashtag ?? "",
       image: imageByName[data.image] ?? null,
@@ -34,4 +34,4 @@ export const articles = Object.entries(rawFiles)
     };
   })
   // Lower `order` first; articles without it go last, ordered by slug.
-  .sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug));
+  .sort((a, b) => b.order - a.order || a.slug.localeCompare(b.slug));
