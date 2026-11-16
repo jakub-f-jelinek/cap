@@ -30,13 +30,24 @@ export default function Documentary() {
             považuje za normální řízení.
           </p>
 
-          <button
-            type="button"
-            className="documentary__btn"
-            onClick={() => setOpen(true)}
-          >
-            Přehrát trailer
-          </button>
+          <div className="documentary__actions">
+            <a
+              className="btn btn--primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.oneplay.cz/film/446502-jedina-vterina?utm_source=google&utm_medium=cpc&utm_campaign=Oneplay_GAds_PMax_Film_446502_JedinaVterina_26-11&utm_id=24464103560&gad_source=1&gad_campaignid=24464107115&gbraid=0AAAAA-hzIN_oeJ6J1dCV3vuL272PtoQXy&gclid=Cj0KCQiAzeXXBhCGARIsADO5-zGi3llTcNZ9ohPA_uSpxGOszr5tZvF4xSl5EHoJMZfnYnhoE4ztN3kaAmicEALw_wcB"
+            >
+              Přehrát dokument
+            </a>
+
+            <button
+              type="button"
+              className="btn btn--secondary"
+              onClick={() => setOpen(true)}
+            >
+              Přehrát trailer
+            </button>
+          </div>
         </div>
       </div>
 

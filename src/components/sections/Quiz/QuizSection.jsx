@@ -143,7 +143,7 @@ export default function QuizSection() {
         {!started && (
           <button
             type="button"
-            className="quiz-section__start-btn"
+            className="btn btn--primary quiz-section__start-btn"
             onClick={handleStart}
           >
             Spustit test
@@ -248,7 +248,7 @@ export default function QuizSection() {
             {isLastSlide && selectedAnswer !== null && (
               <button
                 type="button"
-                className="quiz-section__nav-btn quiz-section__btn--result"
+                className="btn btn--primary quiz-section__btn--result"
                 onClick={handleNext}
                 disabled={selectedAnswer === null}
               >

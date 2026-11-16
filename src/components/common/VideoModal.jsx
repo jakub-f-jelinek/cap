@@ -63,7 +63,11 @@ export default function VideoModal({
                   Přehrání videa načte externí obsah z YouTube, který používá
                   cookies.
                 </p>
-                <button type="button" onClick={acceptAll}>
+                <button
+                  type="button"
+                  className="btn btn--primary"
+                  onClick={acceptAll}
+                >
                   Povolit a přehrát
                 </button>
               </div>

@@ -157,14 +157,12 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
               <p className="quiz-modal__description">{result.description}</p>
 
               <a
-                className="quiz-modal__download"
+                className="btn btn--secondary quiz-modal__download"
                 href={templateSrc}
                 download={`result-filter-${result.number}.png`}
               >
-                <button type="button" className="quiz-modal__download-btn">
-                  <DownloadIcon />
-                  Stáhnout výsledek pro sociální sítě
-                </button>
+                <DownloadIcon />
+                Stáhnout výsledek pro sociální sítě
               </a>
               {/* <div className="quiz-modal__share">
                 {Object.entries(SHARE_NETWORKS).map(
@@ -188,7 +186,7 @@ export default function QuizModal({ isOpen, onClose, onRestart, result }) {
 
             {/* <button
               type="button"
-              className="quiz-modal__restart"
+              className="btn btn--secondary quiz-modal__restart"
               onClick={onRestart}
             >
               Zkusit znovu

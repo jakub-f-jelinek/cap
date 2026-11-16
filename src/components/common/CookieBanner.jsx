@@ -132,19 +132,35 @@ export default function CookieBanner() {
             <div className="cookie-banner__actions">
               {isSettings ? (
                 <>
-                  <button type="button" onClick={() => save({ analytics, marketing })}>
+                  <button
+                    type="button"
+                    className="btn btn--secondary btn--sm"
+                    onClick={() => save({ analytics, marketing })}
+                  >
                     Uložit nastavení
                   </button>
-                  <button type="button" onClick={acceptAll}>
+                  <button
+                    type="button"
+                    className="btn btn--primary btn--sm"
+                    onClick={acceptAll}
+                  >
                     Povolit vše
                   </button>
                 </>
               ) : (
                 <>
-                  <button type="button" onClick={rejectOptional}>
+                  <button
+                    type="button"
+                    className="btn btn--secondary btn--sm"
+                    onClick={rejectOptional}
+                  >
                     Pouze nezbytné
                   </button>
-                  <button type="button" onClick={acceptAll}>
+                  <button
+                    type="button"
+                    className="btn btn--primary btn--sm"
+                    onClick={acceptAll}
+                  >
                     Povolit vše
                   </button>
                   <button

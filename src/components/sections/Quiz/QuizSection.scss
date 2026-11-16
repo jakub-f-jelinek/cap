@@ -310,35 +310,8 @@
   transform: rotate(-45deg);
 }
 
-.quiz-section__start-btn {
-  border-radius: 6px;
-  background: $color-white;
-  color: #000;
-  border: 1px solid transparent;
-  min-width: 160px;
-  height: 48px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s $ease-out;
-
-  &:hover {
-    transform: scale(0.96);
-  }
-}
-
+// Visual style comes from .btn / .btn--primary (styles/main.scss).
 .quiz-section__btn--result {
-  border-radius: 6px;
-  color: #000;
-  border-color: transparent;
-  min-width: 120px;
-  height: 48px;
-  transition: all 1s $ease-out;
-
-  &:hover {
-    transform: scale(0.9);
-  }
-
-  &:disabled {
-    color: $color-text-faint;
-  }
+  position: relative;
+  z-index: 1100;
 }

@@ -120,43 +120,18 @@
       align-items: stretch;
     }
 
-    button {
+    // Action buttons use .btn .btn--primary/.btn--secondary .btn--sm
+    // (styles/main.scss); only the text link is styled here.
+    .cookie-banner__link {
       @include reset-button;
       @include focus-ring;
-      padding: 12px 22px;
-      border: 1px solid $color-white;
+      padding: 12px 4px;
       color: $color-white;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
       text-align: center;
-      text-transform: uppercase;
-      transition:
-        background 0.2s $ease-out,
-        color 0.2s $ease-out;
-
-      &:hover,
-      &:focus-visible {
-        background: $color-white;
-        color: $color-ink;
-      }
-    }
-
-    .cookie-banner__link {
-      padding-inline: 4px;
-      border-color: transparent;
       text-decoration: underline;
       text-underline-offset: 4px;
-
-      &:hover,
-      &:focus-visible {
-        background: none;
-        color: $color-white;
-      }
-
-      &:focus-visible {
-        outline: 2px solid $color-white;
-      }
     }
   }
 }
