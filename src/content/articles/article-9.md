@@ -1,6 +1,6 @@
 ---
 order: 9
-title: "346 pomníčků na náměstí Jiřího z Poděbrad."
+title: "346 pomníčků na náměstí Jiřího z Poděbrad"
 
 image: "jiriho-z-podebrad-jedina-vterina.jpg"
 url: "https://www.instagram.com/p/Dfw78vIii3m/?img_index=1"
